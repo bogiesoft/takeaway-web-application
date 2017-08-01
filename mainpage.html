@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main_page</title>
+	<style type="text/css">
+.iframe-class {
+    width: 100%;
+    height: 80vh;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+div.tab {
+	text-align: center;
+	border: 2px solid #333333;
+	border-radius: 25px;
+
+}
+div.tab button {
+	
+	margin: 10px;
+	color: white;
+	border: 1px solid #ff3535;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0,3s;
+	border-radius: 5px;
+	background-color: #333333;
+}
+div.tab button:hover {
+color: #ff3535;
+}
+div.tab button.active {}
+.tabcontent1, .tabcontent2 {
+	display: none;
+	padding: 6px 12px;
+	border-top:none;
+}
+</style>
+	<script>
+	function opentab1(evt, tabname1) {
+	var i, tabcontent1, tablinks1;
+	tabcontent1 = document.getElementsByClassName("tabcontent1");
+	for (var i = 0; i<tabcontent1.length; i++) {
+		tabcontent1[i].style.display = "none";
+	}
+	tablinks1=document.getElementsByClassName("tablinks1");
+	for(i=0; i<tablinks1.length; i++){
+		tablinks1[i].className=tablinks1[i].className.replace(" active", "");
+	}
+document.getElementById(tabname1).style.display = "block";
+evt.currentTarget.className +=" active";
+}
+
+function opentab2(evt, tabname2) {
+	var i, tabcontent2, tablinks2;
+	tabcontent2 = document.getElementsByClassName("tabcontent2");
+	for (var i = 0; i<tabcontent2.length; i++) {
+		tabcontent2[i].style.display = "none";
+	}
+	tablinks2=document.getElementsByClassName("tablinks2");
+	for(i=0; i<tablinks2.length; i++){
+		tablinks2[i].className=tablinks2[i].className.replace(" active", "");
+	}
+document.getElementById(tabname2).style.display = "block";
+evt.currentTarget.className +=" active";
+}
+</script>
+</head>
+<body>
+<div id="container">
+	<div style="float:left; background-color: #F0F8FF; width:49%; height: 100vh;"; class="tab">
+<button class="tablinks1" onclick="opentab1(event, 'Floorplan')">Floor Plan</button>
+<button class="tablinks1" onclick="opentab1(event, 'Tips')">Tips</button>
+<div id="Floorplan" class="tabcontent1">
+	<h3>Floor Plan</h3>
+	<p>here is a floor plan</p>
+</div>
+<div id="Tips" class="tabcontent1">
+	<h3>Tips</h3>
+	<iframe class="iframe-class" src=""></iframe>
+</div>
+	</div>
+	<div style="float:right; background-color: #F0F8FF; width:49%; height: 100vh;"; class="tab">
+<button class="tablinks2" onclick="opentab2(event, 'Reservation')">Reservation</button>
+<button class="tablinks2" onclick="opentab2(event, 'Takeout')">Take Out</button>
+<button class="tablinks2" onclick="opentab2(event, 'Salesreport')">Sales Report</button>
+<div id="Reservation" class="tabcontent2">
+	<h3>Reservation</h3>
+	<iframe class="iframe-class" src="/Applications/MAMP/htdocs/restaurant/reservation.html"></iframe>
+</div>
+<div id="Takeout" class="tabcontent2">
+	<h3>Take Out</h3>
+	<p>Here is take out items</p>
+</div>
+<div id="Salesreport" class="tabcontent2">
+	<h3>Sales report</h3>
+	<p>Here is sales report</p>
+</div>
+</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<br>
+<div class="container">
+<div class="row col-md-9 col-md-offset-3">
+<form>
+  Reservation (date and time):
+  <input type="datetime-local" name="Resevation time">
+</form>
+</div>
+    <form class="form-group">
+    <div class="row col-md-9 col-md-offset-3">
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 1
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 2
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 3
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 4
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 5
+    </label>
+    <br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 6
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 7
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 8
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 9
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">Table 10
+    </label>
+    </div>
+
+	<div class="row col-md-9 col-md-offset-3">
+	  Name : <input type="text" name="fullname"><br>
+	  Phone: <input type="text" name="Phonenumber"><br>
+	  <label>Guest:</label>
+	  <select>
+	  	<option>02</option>
+	  	<option>04</option>
+	  </select>
+
+	</div>
+    </form>
+</div>
+<div class="row col-md-8 col-md-offset-4">
+	 <input type="submit" value="Submit" class="btn-info" onclick="info()">
+</div>
+ <script type="text/javascript">
+ 	function info() {
+ 		alert("Hey! Reserved");
+ 	}
+ </script>
+</body>
+</html>
+
