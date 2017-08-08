@@ -3,20 +3,32 @@
 <head>
 	<title>main_page</title>
 	<style type="text/css">
-.iframe-class {
-    width: 100%;
-    height: 80vh;
-    border: 1px solid black;
-    overflow: auto;
+
+.tip_options {
+
+	margin: 4px;
+	color: black;
+	border: 1px solid #ff3535;
+	outline: none;
+	cursor: pointer;
+	padding: 8px 16px;
+	transition: 0,3s;
+	border-radius: 14px;
+	background-color:#F0F8FF;
+}
+input{
+	width: 20%;
+    padding: 12px 20px;
+    margin: 5px 0;
+    box-sizing: border-box;
 }
 
 div.tab {
 	text-align: center;
 	border: 2px solid #333333;
 	border-radius: 25px;
-
 }
-div.tab button {
+.tablinks1, .tablinks2 {
 	
 	margin: 10px;
 	color: white;
@@ -37,6 +49,61 @@ div.tab button.active {}
 	padding: 6px 12px;
 	border-top:none;
 }
+
+.tip_options {
+
+	margin: 4px;
+	color: black;
+	border: 1px solid #ff3535;
+	outline: none;
+	cursor: pointer;
+	padding: 8px 16px;
+	transition: 0,3s;
+	border-radius: 14px;
+	background-color:#F0F8FF;
+}
+input{
+	width: 20%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border-radius: 14px;
+}
+#calculate{width: 20%;
+background-color: #ff3535;
+color: white;}
+
+#tip{width: 10%;
+}
+.ul
+{
+list-style-type: none;
+}
+.food{
+  width:50px;
+  height:50px;
+ 
+}
+.input td {
+  padding:50px 100px 10px 50px;
+}
+
+#right{
+  margin-left: auto;
+  margin-right: auto;
+}
+#right li{
+  display: inline-block;
+}
+#subtotalBox{
+  width: 100px;
+}
+#taxBox{
+  width: 100px;
+}
+#grandtotalBox{
+  width: 100px;
+}
 </style>
 	<script>
 	function opentab1(evt, tabname1) {
@@ -52,7 +119,6 @@ div.tab button.active {}
 document.getElementById(tabname1).style.display = "block";
 evt.currentTarget.className +=" active";
 }
-
 function opentab2(evt, tabname2) {
 	var i, tabcontent2, tablinks2;
 	tabcontent2 = document.getElementsByClassName("tabcontent2");
@@ -78,8 +144,144 @@ evt.currentTarget.className +=" active";
 	<p>here is a floor plan</p>
 </div>
 <div id="Tips" class="tabcontent1">
-	<h3>Tips</h3>
-	<iframe class="iframe-class" src=""></iframe>
+	<h2>Tip calculator</h2>
+  <div id="right" style="float:left";>             
+<script language=javascript>
+
+
+
+function count(){
+var q1 = parseFloat(+document.getElementById("sashimi1").value || 0);
+var p1 = parseFloat(+document.getElementById("price1").value || 0);//we are excluding empty textboxes
+var q2 = parseFloat(+document.getElementById("sashimi2").value || 0);
+var p2 = parseFloat(+document.getElementById("price2").value || 0);
+var q3 = parseFloat(+document.getElementById("sashimi3").value || 0);
+var p3 = parseFloat(+document.getElementById("price3").value || 0);
+var q4 = parseFloat(+document.getElementById("sashimi4").value || 0);
+var p4 = parseFloat(+document.getElementById("price4").value || 0);
+var q5 = parseFloat(+document.getElementById("sashimi5").value || 0);
+var p5 = parseFloat(+document.getElementById("price5").value || 0);
+var q6 = parseFloat(+document.getElementById("sashimi6").value || 0);
+var p6 = parseFloat(+document.getElementById("price6").value || 0);
+var q7 = parseFloat(+document.getElementById("sashimi7").value || 0);
+var p7 = parseFloat(+document.getElementById("price7").value || 0);
+var q8 = parseFloat(+document.getElementById("sashimi8").value || 0);
+var p8 = parseFloat(+document.getElementById("price8").value || 0);
+var q9 = parseFloat(+document.getElementById("sashimi9").value || 0);
+var p9 = parseFloat(+document.getElementById("price9").value || 0);
+var q10 = parseFloat(+document.getElementById("sashimi10").value || 0);
+var p10 = parseFloat(+document.getElementById("price10").value || 0);
+var q11 = parseFloat(+document.getElementById("sashimi11").value || 0);
+var p11 = parseFloat(+document.getElementById("price11").value || 0);
+var q12 = parseFloat(+document.getElementById("sashimi12").value || 0);
+var p12 = parseFloat(+document.getElementById("price12").value || 0);
+var q13 = parseFloat(+document.getElementById("sashimi13").value || 0);
+var p13 = parseFloat(+document.getElementById("price13").value || 0);
+var q14 = parseFloat(+document.getElementById("sashimi14").value || 0);
+var p14 = parseFloat(+document.getElementById("price14").value || 0);
+var q15 = parseFloat(+document.getElementById("sashimi15").value || 0);
+var p15 = parseFloat(+document.getElementById("price15").value || 0);
+var q16 = parseFloat(+document.getElementById("sashimi16").value || 0);
+var p16 = parseFloat(+document.getElementById("price16").value || 0);
+var q17 = parseFloat(+document.getElementById("sashimi17").value || 0);
+var p17 = parseFloat(+document.getElementById("price17").value || 0);
+var q18 = parseFloat(+document.getElementById("sashimi18").value || 0);
+var p18 = parseFloat(+document.getElementById("price18").value || 0);
+var p19 = parseFloat(+document.getElementById("sashimi18").value || 0);
+var q19 = parseFloat(+document.getElementById("sashimi18").value || 0);
+var q20 = parseFloat(+document.getElementById("sashimi20").value) || 0;
+var p20 = parseFloat(+document.getElementById("price20").value) || 0;
+
+//These lines define the variables.
+var result = [(q1 * p1)+(q2 * p2)+(q3 * p3)+(q4 * p4)+(q5 * p5)+(q6 * p6)+(q7 * p7)+(q8 * p8)+(q9 * p9)+(q10 * p10)+(q11 * p11)+(q12 * p12)+(q13 * p13)+(q14 * p14)+(q15 * p14)+(q16 * p16)+(q17 * p17)+(q18 * p18)+(q19 * p19)+(q20 * p20)];
+
+document.getElementById("subtotalBox").value = result; 
+
+}
+function count2()
+{
+  var tax  = parseFloat(document.getElementById("subtotalBox").value);
+  var result = (tax * 0.0878);
+  document.getElementById("taxBox").value = result;
+}
+function count3()
+{
+  var tax = parseFloat(document.getElementById("taxBox").value);
+  var subtotal = parseFloat(document.getElementById("subtotalBox").value);
+  var result = [(subtotal + tax)];
+  document.getElementById("grandtotalBox").value = result;
+}
+function fill(){
+  var text = document.getElementById("grandtotalBox").value;
+  document.getElementById("damt").value = text;
+}
+function someFunc(){
+  count();
+  count2();
+  count3();
+  fill();
+}
+
+
+</script>
+<table>
+<tr>
+<td>Calculate:</td>
+<td><button onClick="someFunc()">calculate</button></td>
+</tr>
+<tr>
+<td>SubTotal:</td>
+<td><input type="text" id="subtotalBox" size="6"/></td>
+</tr>
+<tr>
+<td>Tax: $</td>
+<td><input type="text" id="taxBox" size="6"  /></td>
+</tr>
+<td>Grand Total: $</td>
+<td><input type="text" id="grandtotalBox" size="6" /></td>
+</table>
+</div>
+  <script>
+  function {}
+  </script>
+Amount $ <input type="text" id="damt">
+
+<br/>
+
+<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
+tip_percent = parseFloat(document.getElementById('tip').value); 
+tipamt = dinneramt*0.1;
+totalamt=dinneramt +tipamt;
+document.getElementById('tamt').value=tipamt;
+document.getElementById('total').value=totalamt;">10%</button>
+<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
+tip_percent = parseFloat(document.getElementById('tip').value); 
+tipamt = dinneramt*0.15;
+totalamt=dinneramt +tipamt;
+document.getElementById('tamt').value=tipamt;
+document.getElementById('total').value=totalamt;">15%</button>
+<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
+tip_percent = parseFloat(document.getElementById('tip').value); 
+tipamt = dinneramt*0.2;
+totalamt=dinneramt +tipamt;
+document.getElementById('tamt').value=tipamt;
+document.getElementById('total').value=totalamt;">20%</button>
+Custom Tip <input type="text" id="tip">%
+<br/>
+<input id="calculate" type="button" value="Calculate" onclick="
+dinneramt = parseFloat(document.getElementById('damt').value); 
+tip_percent = parseFloat(document.getElementById('tip').value); 
+tipamt = dinneramt*tip_percent/100;
+totalamt=dinneramt +tipamt;
+document.getElementById('tamt').value=tipamt;
+document.getElementById('total').value=totalamt; ">
+
+	<br/>
+Tip amount: $<input type="text" id="tamt">
+</br>
+Total: $<input type="text" id="total">
+
+	
 </div>
 	</div>
 	<div style="float:right; background-color: #F0F8FF; width:49%; height: 100vh;"; class="tab">
@@ -87,12 +289,226 @@ evt.currentTarget.className +=" active";
 <button class="tablinks2" onclick="opentab2(event, 'Takeout')">Take Out</button>
 <button class="tablinks2" onclick="opentab2(event, 'Salesreport')">Sales Report</button>
 <div id="Reservation" class="tabcontent2">
+  <style>
+  table{}
+  td {
+  text-align: center;
+  padding: 10px;
+     margin: 20px;
+     width:100px;
+   }
+
+  </style>
 	<h3>Reservation</h3>
-	<iframe class="iframe-class" src="/Applications/MAMP/htdocs/restaurant/reservation.html"></iframe>
+	<div class="container">
+<div class="row col-md-9 col-md-offset-3">
+<form>
+
+	<div class="row col-md-9 col-md-offset-3">
+	  Name : <input type="text" name="fullname"><br>
+	  <br>
+	  Phone: <input type="text" name="Phonenumber"><br>
+	  <br>
+	  <label>Guest:</label>
+	  <select>
+	  <option>01</option>
+	  	<option>02</option>
+	  	<option>03</option>
+	  	<option>04</option>
+	  </select>
+
+	</div>
+  Reservation (date and time):<br/>
+  <input id = "date" type="datetime-local" name="Resevation time">
+</form>
+</div>
+<br>
+<table>
+<tr id="rno1">
+    <td id="tno1" onclick="bookTable(1)">Table1</td> 
+    <td id="tno2" onclick="bookTable(2)">Table2</td>
+    <td id="tno3" onclick="bookTable(3)">Table3</td>
+   </tr>
+<tr id="rno2">
+    <td id="tno4" onclick="bookTable(4)">Table4</td> 
+    <td id="tno5" onclick="bookTable(5)">Table5</td>
+    <td id="tno6" onclick="bookTable(6)">Table6</td>
+    </tr>
+<tr id="rno3">
+    <td id="tno7" onclick="bookTable(7)">Table7</td> 
+    <td id="tno8" onclick="bookTable(8)">Table8</td>
+    <td id="tno9" onclick="bookTable(9)">Table9</td>
+    </tr>
+<tr id="rno4"> 
+	<td id="tno10" onclick="bookTable(10)">Table10</td>
+	</tr>
+
+</table>
+  <script>
+  function bookTable(a) {
+    var x="tno"+a;
+    if(document.getElementById(x).innerHTML=="Reserved"){
+      document.getElementById(x).innerHTML="Table"+a;
+      document.getElementById(x).style.backgroundColor = "grey";
+    }
+    else{
+      document.getElementById(x).innerHTML="Reserved";
+      document.getElementById(x).style.backgroundColor = "red";
+    }
+  }
+  </script>
+    <br>
+    <div class="controls">
+          <textarea name="comments" class="floatLabel" id="comments"></textarea>
+          <label id="comments" for="comments">Comments</label>
+     </div>
+     <br>
+
+</div>
+<div class="row col-md-8 col-md-offset-4">
+	 <input type="submit" value="Submit" class="btn-info" onclick="info()">
+</div>
 </div>
 <div id="Takeout" class="tabcontent2">
-	<h3>Take Out</h3>
-	<p>Here is take out items</p>
+<div align="center">
+<h1>Take some food away!</h1>
+ </div>
+<br>
+<div id="main">
+<div id="left" style="overflow:scroll; height:750px; background-color: #FFF";>
+<table>
+    <table>
+      <thead>
+         <tr>
+            <th class="food">Dish</th>
+              <th class="food">Quantity</th>
+              <th class="food">Price</th>
+         </tr>
+      </thead>
+      <br>
+    <tbody> 
+    <script type="text/javascript">
+
+</script>
+      <br>
+         <tr class="input">
+          <td><img src="/Users/sam/Desktop/PERSCHOLAS/RESTAURANTPROJECT/take out menu/2.jpg" height="90px" width="170px" alt="image"></td>
+          <td><input type="number" class="food" id="sashimi1" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price1" value="16"/></td>
+         </tr>
+         <tr class="input">
+          <td>Sashimi 2</td>
+          <td><input type="number" class="food" id="sashimi2" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price2" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 3</td>
+          <td><input type="number" class="food" id="sashimi3" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price3" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 4</td>
+          <td><input  type="number" class="food" id="sashimi4" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price4" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 5</td>
+          <td><input  type="number" class="food" id="sashimi5" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price5" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 6</td>
+          <td><input type="number" class="food" id="sashimi6" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price6" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 7</td>
+          <td><input type="number" class="food" id="sashimi7" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price7" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 8</td>
+          <td><input type="number" class="food" id="sashimi8" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price8" value="16"/></td>
+         </tr>
+         <tr class="input">
+          <td>Sashimi 9</td>
+          <td><input  type="number" class="food" id="sashimi9" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price9" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 10</td>
+          <td><input type="number" class="food" id="sashimi10" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price10" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 11</td>
+          <td><input type="number" class="food" id="sashimi11" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price11" value="16"/></td>
+         </tr>
+         <tr class="input">
+          <td>Sashimi 12</td>
+          <td><input type="number" class="food" id="sashimi12" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price12" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 13</td>
+          <td><input type="number" class="food" id="sashimi13" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price13" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 14</td>
+          <td><input type="number" class="food" id="sashimi14" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price14" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 15</td>
+          <td><input type="number" class="food" id="sashimi15" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price15" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 16</td>
+          <td><input type="number" class="food" id="sashimi16" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price16" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 17</td>
+          <td><input type="number" class="food" id="sashimi17"  min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price17" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 18</td>
+          <td><input type="number" class="food" id="sashimi18" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price18" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 19</td>
+          <td><input type="number" class="food" id="sashimi19" min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price19" value="16"/></td>
+         </tr>  
+         <tr class="input">
+          <td>Sashimi 20</td>
+          <td><input type="number" class="food" id="sashimi20"  min="0" max="1000" value="0"></input></td>
+          <td><input class="food" type="number" id="price20" value="16"/></td>
+         </tr>  
+         <br>
+       <br>
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+         </tr>  
+         <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+         </tr>
+
+      </tbody>
+    </table>
+</table>
+</div>
+
 </div>
 <div id="Salesreport" class="tabcontent2">
 	<h3>Sales report</h3>
