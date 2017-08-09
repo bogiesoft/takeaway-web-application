@@ -61,6 +61,7 @@ div.tab button.active {}
 	transition: 0,3s;
 	border-radius: 14px;
 	background-color:#F0F8FF;
+	width:100%;
 }
 input{
 	width: 20%;
@@ -69,7 +70,7 @@ input{
     box-sizing: border-box;
     border-radius: 14px;
 }
-#calculate{width: 20%;
+#calculate{width: 100%;
 background-color: #ff3535;
 color: white;}
 
@@ -85,25 +86,18 @@ list-style-type: none;
  
 }
 .input td {
-  padding:50px 100px 10px 50px;
+  padding:30px 100px 10px 50px;
 }
 
-#right{
-  margin-left: auto;
-  margin-right: auto;
-}
+
 #right li{
   display: inline-block;
 }
-#subtotalBox{
-  width: 100px;
+
+#tamt, #tip, #totalBox, #taxBox, #subtotalBox, #total {
+	width: 100px;
 }
-#taxBox{
-  width: 100px;
-}
-#grandtotalBox{
-  width: 100px;
-}
+
 </style>
 	<script>
 	function opentab1(evt, tabname1) {
@@ -145,7 +139,7 @@ evt.currentTarget.className +=" active";
 </div>
 <div id="Tips" class="tabcontent1">
 	<h2>Tip calculator</h2>
-  <div id="right" style="float:left";>             
+  <div id="right" >             
 <script language=javascript>
 
 
@@ -209,11 +203,11 @@ function count3()
   var tax = parseFloat(document.getElementById("taxBox").value);
   var subtotal = parseFloat(document.getElementById("subtotalBox").value);
   var result = [(subtotal + tax)];
-  document.getElementById("grandtotalBox").value = result;
+  document.getElementById("totalBox").value = result;
 }
 function fill(){
-  var text = document.getElementById("grandtotalBox").value;
-  document.getElementById("damt").value = text;
+  var text = document.getElementById("totalBox").value;
+  document.getElementById("totalBox").value = text;
 }
 function someFunc(){
   count();
@@ -226,60 +220,86 @@ function someFunc(){
 </script>
 <table>
 <tr>
-<td>Calculate:</td>
-<td><button onClick="someFunc()">calculate</button></td>
-</tr>
-<tr>
-<td>SubTotal:</td>
+<td>SubTotal:.....................................................................................................................</td>
 <td><input type="text" id="subtotalBox" size="6"/></td>
 </tr>
 <tr>
-<td>Tax: $</td>
+<td>Tax:..........................................................................................................................</td>
 <td><input type="text" id="taxBox" size="6"  /></td>
 </tr>
-<td>Grand Total: $</td>
-<td><input type="text" id="grandtotalBox" size="6" /></td>
-</table>
-</div>
-  <script>
-  function {}
-  </script>
-Amount $ <input type="text" id="damt">
-
-<br/>
-
-<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
+<tr>
+<td>Total:........................................................................................................................</td>
+<td><input type="text" id="totalBox" size="6" /></td>
+</tr>
+<tr>
+<td>10% tip:.....................................................................................................................</td>
+<td>
+<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('totalBox').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*0.1;
 totalamt=dinneramt +tipamt;
 document.getElementById('tamt').value=tipamt;
 document.getElementById('total').value=totalamt;">10%</button>
-<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
+</td>
+</tr>
+<tr>
+<td>15% tip:.....................................................................................................................</td>
+<td><button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('totalBox').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*0.15;
 totalamt=dinneramt +tipamt;
 document.getElementById('tamt').value=tipamt;
 document.getElementById('total').value=totalamt;">15%</button>
-<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
+</td>
+</tr>
+<tr>
+<td>20% tip:.....................................................................................................................</td>
+<td><button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('totalBox').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*0.2;
 totalamt=dinneramt +tipamt;
 document.getElementById('tamt').value=tipamt;
 document.getElementById('total').value=totalamt;">20%</button>
-Custom Tip <input type="text" id="tip">%
-<br/>
-<input id="calculate" type="button" value="Calculate" onclick="
-dinneramt = parseFloat(document.getElementById('damt').value); 
+</td>
+</tr>
+<tr>
+<td>Custom Tip:.............................................................................................................</td>
+<td><input type="text" id="tip"/></td>
+</tr>
+<tr>
+<td></td>
+<td><input id="calculate" type="button" value="Calculate" onclick="
+dinneramt = parseFloat(document.getElementById('totalBox').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*tip_percent/100;
 totalamt=dinneramt +tipamt;
-document.getElementById('tamt').value=tipamt;
-document.getElementById('total').value=totalamt; ">
+document.getElementById('tamt').value=tipamt;             
+document.getElementById('total').value=totalamt; "></td>
+</tr>
+<tr>
+<td>Tip amount:..............................................................................................................</td>
+<td><input type="text" id="tamt" size="6"></td>
+</tr>
+<tr>
+<td>Grand Total:.............................................................................................................</td>
+<td><input type="text" id="total"/></td>
+</tr>
+
+</table>
+</div>
+
+
+<br/>
+
+
+
+ 
+<br/>
+
 
 	<br/>
-Tip amount: $<input type="text" id="tamt">
+
 </br>
-Total: $<input type="text" id="total">
 
 	
 </div>
@@ -301,10 +321,10 @@ Total: $<input type="text" id="total">
   </style>
 	<h3>Reservation</h3>
 	<div class="container">
-<div class="row col-md-9 col-md-offset-3">
+<div>
 <form>
 
-	<div class="row col-md-9 col-md-offset-3">
+	<div>
 	  Name : <input type="text" name="fullname"><br>
 	  <br>
 	  Phone: <input type="text" name="Phonenumber"><br>
@@ -372,6 +392,10 @@ Total: $<input type="text" id="total">
 <div id="Takeout" class="tabcontent2">
 <div align="center">
 <h1>Take some food away!</h1>
+<tr>
+<td>Check out:</td>
+<td><button onClick="someFunc()">Fire</button></td>
+</tr>
  </div>
 <br>
 <div id="main">
