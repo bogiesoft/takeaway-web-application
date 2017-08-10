@@ -4,98 +4,112 @@
 	<title>main_page</title>
 	<style type="text/css">
 
-.tip_options {
+body{
+	background-image: url(https://samuraidiner.000webhostapp.com/1.jpg);
+	background-size: cover;
+	
+	-webkit-filter: blur(0px);
+}
+.rl{
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 35px;
 
-	margin: 4px;
-	color: black;
-	border: 1px solid #ff3535;
-	outline: none;
-	cursor: pointer;
-	padding: 8px 16px;
-	transition: 0,3s;
-	border-radius: 14px;
-	background-color:#F0F8FF;
-}
-input{
-	width: 20%;
-    padding: 12px 20px;
-    margin: 5px 0;
-    box-sizing: border-box;
-}
+  float:left; 
+  width:49%; height: 120vh;}
 
-div.tab {
-	text-align: center;
-	border: 2px solid #333333;
-	border-radius: 25px;
-}
 .tablinks1, .tablinks2 {
 	
 	margin: 10px;
 	color: white;
-	border: 1px solid #ff3535;
+	border: 1px solid #F29E20;
 	outline: none;
 	cursor: pointer;
 	padding: 14px 16px;
 	transition: 0,3s;
 	border-radius: 5px;
 	background-color: #333333;
+	opacity: 1,0;
 }
-div.tab button:hover {
-color: #ff3535;
+div.rl button:hover {
+color: #F29E20;
 }
-div.tab button.active {}
+div.rl button.active {}
 .tabcontent1, .tabcontent2 {
 	display: none;
 	padding: 6px 12px;
 	border-top:none;
 }
 
+h2{
+	color: white;
+}
 .tip_options {
 
 	margin: 4px;
-	color: black;
+	color: white;
 	border: 1px solid #ff3535;
 	outline: none;
 	cursor: pointer;
 	padding: 8px 16px;
 	transition: 0,3s;
-	border-radius: 14px;
-	background-color:#F0F8FF;
-	width:100%;
+	border-radius: 5px;
+	background-color: #333333;
 }
-input{
-	width: 20%;
-    padding: 8px;
-    margin: 5px 0;
-    box-sizing: border-box;
-    border-radius: 14px;
+
 }
-#calculate{width: 100%;
+#calculate{width: 20%;
 background-color: #ff3535;
 color: white;}
 
 #tip{width: 10%;
 }
-.ul
-{
-list-style-type: none;
-}
-.food{
-  width:50px;
-  height:50px;
- 
-}
-.input td {
-  padding:30px 100px 10px 50px;
-}
+.big{
+	color: white;
 
-
-#right li{
-  display: inline-block;
 }
+.small{
+	border: 1px solid #c1b9aa;
+}
+.item_top{
+}
+.item_name{
+	text-align: left;
+	font-size: 16pt;
+}
+.item_price{
+	
+	border-radius: 5px;
+	text-align: center;
+	color:white;
+	border: 1px solid #333333;
+	background-color:  #F29E20;
 
-#tamt, #tip, #totalBox, #taxBox, #subtotalBox, #total {
-	width: 100px;
+	}
+.items{
+	
+	width: 150px;
+	height: 120px;
+	border-radius: 14px;
+
+}
+.item_total{
+	text-align: center;
+	width: 30%;
+border:1px solid #333333;}
+
+.btn_total{
+width: 20%;
+color: #F29E20;
+border: 1px solid #F29E20;
+border-radius: 5px;
+background-color: #333333
+}
+#add{width: 40%;
+border-radius: 1px;
+background-color: #F29E20;
+color: white;
+border:none;}
 }
 
 </style>
@@ -127,186 +141,64 @@ document.getElementById(tabname2).style.display = "block";
 evt.currentTarget.className +=" active";
 }
 </script>
+
 </head>
 <body>
 <div id="container">
-	<div style="float:left; background-color: #F0F8FF; width:49%; height: 100vh;"; class="tab">
+	<div class="rl" ";>
 <button class="tablinks1" onclick="opentab1(event, 'Floorplan')">Floor Plan</button>
-<button class="tablinks1" onclick="opentab1(event, 'Tips')">Tips</button>
+<button class="tablinks1" onclick="opentab1(event, 'Tips'); " id='tips'>Payment</button> 
+
 <div id="Floorplan" class="tabcontent1">
 	<h3>Floor Plan</h3>
 	<p>here is a floor plan</p>
 </div>
 <div id="Tips" class="tabcontent1">
 	<h2>Tip calculator</h2>
-  <div id="right" >             
-<script language=javascript>
+Amount $ <input type="text" id="damt">
+<br/>
 
-
-
-function count(){
-var q1 = parseFloat(+document.getElementById("sashimi1").value || 0);
-var p1 = parseFloat(+document.getElementById("price1").value || 0);//we are excluding empty textboxes
-var q2 = parseFloat(+document.getElementById("sashimi2").value || 0);
-var p2 = parseFloat(+document.getElementById("price2").value || 0);
-var q3 = parseFloat(+document.getElementById("sashimi3").value || 0);
-var p3 = parseFloat(+document.getElementById("price3").value || 0);
-var q4 = parseFloat(+document.getElementById("sashimi4").value || 0);
-var p4 = parseFloat(+document.getElementById("price4").value || 0);
-var q5 = parseFloat(+document.getElementById("sashimi5").value || 0);
-var p5 = parseFloat(+document.getElementById("price5").value || 0);
-var q6 = parseFloat(+document.getElementById("sashimi6").value || 0);
-var p6 = parseFloat(+document.getElementById("price6").value || 0);
-var q7 = parseFloat(+document.getElementById("sashimi7").value || 0);
-var p7 = parseFloat(+document.getElementById("price7").value || 0);
-var q8 = parseFloat(+document.getElementById("sashimi8").value || 0);
-var p8 = parseFloat(+document.getElementById("price8").value || 0);
-var q9 = parseFloat(+document.getElementById("sashimi9").value || 0);
-var p9 = parseFloat(+document.getElementById("price9").value || 0);
-var q10 = parseFloat(+document.getElementById("sashimi10").value || 0);
-var p10 = parseFloat(+document.getElementById("price10").value || 0);
-var q11 = parseFloat(+document.getElementById("sashimi11").value || 0);
-var p11 = parseFloat(+document.getElementById("price11").value || 0);
-var q12 = parseFloat(+document.getElementById("sashimi12").value || 0);
-var p12 = parseFloat(+document.getElementById("price12").value || 0);
-var q13 = parseFloat(+document.getElementById("sashimi13").value || 0);
-var p13 = parseFloat(+document.getElementById("price13").value || 0);
-var q14 = parseFloat(+document.getElementById("sashimi14").value || 0);
-var p14 = parseFloat(+document.getElementById("price14").value || 0);
-var q15 = parseFloat(+document.getElementById("sashimi15").value || 0);
-var p15 = parseFloat(+document.getElementById("price15").value || 0);
-var q16 = parseFloat(+document.getElementById("sashimi16").value || 0);
-var p16 = parseFloat(+document.getElementById("price16").value || 0);
-var q17 = parseFloat(+document.getElementById("sashimi17").value || 0);
-var p17 = parseFloat(+document.getElementById("price17").value || 0);
-var q18 = parseFloat(+document.getElementById("sashimi18").value || 0);
-var p18 = parseFloat(+document.getElementById("price18").value || 0);
-var p19 = parseFloat(+document.getElementById("sashimi18").value || 0);
-var q19 = parseFloat(+document.getElementById("sashimi18").value || 0);
-var q20 = parseFloat(+document.getElementById("sashimi20").value) || 0;
-var p20 = parseFloat(+document.getElementById("price20").value) || 0;
-
-//These lines define the variables.
-var result = [(q1 * p1)+(q2 * p2)+(q3 * p3)+(q4 * p4)+(q5 * p5)+(q6 * p6)+(q7 * p7)+(q8 * p8)+(q9 * p9)+(q10 * p10)+(q11 * p11)+(q12 * p12)+(q13 * p13)+(q14 * p14)+(q15 * p14)+(q16 * p16)+(q17 * p17)+(q18 * p18)+(q19 * p19)+(q20 * p20)];
-
-document.getElementById("subtotalBox").value = result; 
-
-}
-function count2()
-{
-  var tax  = parseFloat(document.getElementById("subtotalBox").value);
-  var result = (tax * 0.0878);
-  document.getElementById("taxBox").value = result;
-}
-function count3()
-{
-  var tax = parseFloat(document.getElementById("taxBox").value);
-  var subtotal = parseFloat(document.getElementById("subtotalBox").value);
-  var result = [(subtotal + tax)];
-  document.getElementById("totalBox").value = result;
-}
-function fill(){
-  var text = document.getElementById("totalBox").value;
-  document.getElementById("totalBox").value = text;
-}
-function someFunc(){
-  count();
-  count2();
-  count3();
-  fill();
-}
-
-
-</script>
-<table>
-<tr>
-<td>SubTotal:.....................................................................................................................</td>
-<td><input type="text" id="subtotalBox" size="6"/></td>
-</tr>
-<tr>
-<td>Tax:..........................................................................................................................</td>
-<td><input type="text" id="taxBox" size="6"  /></td>
-</tr>
-<tr>
-<td>Total:........................................................................................................................</td>
-<td><input type="text" id="totalBox" size="6" /></td>
-</tr>
-<tr>
-<td>10% tip:.....................................................................................................................</td>
-<td>
-<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('totalBox').value); 
+<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*0.1;
 totalamt=dinneramt +tipamt;
 document.getElementById('tamt').value=tipamt;
 document.getElementById('total').value=totalamt;">10%</button>
-</td>
-</tr>
-<tr>
-<td>15% tip:.....................................................................................................................</td>
-<td><button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('totalBox').value); 
+<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*0.15;
 totalamt=dinneramt +tipamt;
 document.getElementById('tamt').value=tipamt;
 document.getElementById('total').value=totalamt;">15%</button>
-</td>
-</tr>
-<tr>
-<td>20% tip:.....................................................................................................................</td>
-<td><button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('totalBox').value); 
+<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*0.2;
 totalamt=dinneramt +tipamt;
 document.getElementById('tamt').value=tipamt;
 document.getElementById('total').value=totalamt;">20%</button>
-</td>
-</tr>
-<tr>
-<td>Custom Tip:.............................................................................................................</td>
-<td><input type="text" id="tip"/></td>
-</tr>
-<tr>
-<td></td>
-<td><input id="calculate" type="button" value="Calculate" onclick="
-dinneramt = parseFloat(document.getElementById('totalBox').value); 
+Custom Tip <input type="text" id="tip">%
+<br/>
+<input id="calculate" type="button" value="Calculate" onclick="
+dinneramt = parseFloat(document.getElementById('damt').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*tip_percent/100;
 totalamt=dinneramt +tipamt;
-document.getElementById('tamt').value=tipamt;             
-document.getElementById('total').value=totalamt; "></td>
-</tr>
-<tr>
-<td>Tip amount:..............................................................................................................</td>
-<td><input type="text" id="tamt" size="6"></td>
-</tr>
-<tr>
-<td>Grand Total:.............................................................................................................</td>
-<td><input type="text" id="total"/></td>
-</tr>
-
-</table>
-</div>
-
-
-<br/>
-
-
-
- 
-<br/>
-
+document.getElementById('tamt').value=tipamt;
+document.getElementById('total').value=totalamt; ">
 
 	<br/>
-
+Subtotal: $ <
+Tip amount: $<input type="text" id="tamt">
 </br>
+Total: $<input type="text" id="total">
 
 	
 </div>
 	</div>
-	<div style="float:right; background-color: #F0F8FF; width:49%; height: 100vh;"; class="tab">
+	<div class="rl">
 <button class="tablinks2" onclick="opentab2(event, 'Reservation')">Reservation</button>
-<button class="tablinks2" onclick="opentab2(event, 'Takeout')">Take Out</button>
+<button class="tablinks2" onclick="opentab2(event, 'Takeout') ,  opentab1(event, 'Tips');" id='takeout'>Take Out
+</button>
 <button class="tablinks2" onclick="opentab2(event, 'Salesreport')">Sales Report</button>
 <div id="Reservation" class="tabcontent2">
   <style>
@@ -321,10 +213,10 @@ document.getElementById('total').value=totalamt; "></td>
   </style>
 	<h3>Reservation</h3>
 	<div class="container">
-<div>
+<div class="row col-md-9 col-md-offset-3">
 <form>
 
-	<div>
+	<div class="row col-md-9 col-md-offset-3">
 	  Name : <input type="text" name="fullname"><br>
 	  <br>
 	  Phone: <input type="text" name="Phonenumber"><br>
@@ -389,157 +281,126 @@ document.getElementById('total').value=totalamt; "></td>
 	 <input type="submit" value="Submit" class="btn-info" onclick="info()">
 </div>
 </div>
+
+
+
 <div id="Takeout" class="tabcontent2">
-<div align="center">
-<h1>Take some food away!</h1>
-<tr>
-<td>Check out:</td>
-<td><button onClick="someFunc()">Fire</button></td>
-</tr>
- </div>
-<br>
-<div id="main">
-<div id="left" style="overflow:scroll; height:750px; background-color: #FFF";>
-<table>
-    <table>
-      <thead>
-         <tr>
-            <th class="food">Dish</th>
-              <th class="food">Quantity</th>
-              <th class="food">Price</th>
-         </tr>
-      </thead>
-      <br>
-    <tbody> 
-    <script type="text/javascript">
+	<table class="big">
+	<tr>
+		<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">California roll</td><td class="item_price">$3.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="/anago.jpg"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
 
-</script>
-      <br>
-         <tr class="input">
-          <td><img src="/Users/sam/Desktop/PERSCHOLAS/RESTAURANTPROJECT/take out menu/2.jpg" height="90px" width="170px" alt="image"></td>
-          <td><input type="number" class="food" id="sashimi1" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price1" value="16"/></td>
-         </tr>
-         <tr class="input">
-          <td>Sashimi 2</td>
-          <td><input type="number" class="food" id="sashimi2" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price2" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 3</td>
-          <td><input type="number" class="food" id="sashimi3" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price3" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 4</td>
-          <td><input  type="number" class="food" id="sashimi4" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price4" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 5</td>
-          <td><input  type="number" class="food" id="sashimi5" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price5" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 6</td>
-          <td><input type="number" class="food" id="sashimi6" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price6" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 7</td>
-          <td><input type="number" class="food" id="sashimi7" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price7" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 8</td>
-          <td><input type="number" class="food" id="sashimi8" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price8" value="16"/></td>
-         </tr>
-         <tr class="input">
-          <td>Sashimi 9</td>
-          <td><input  type="number" class="food" id="sashimi9" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price9" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 10</td>
-          <td><input type="number" class="food" id="sashimi10" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price10" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 11</td>
-          <td><input type="number" class="food" id="sashimi11" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price11" value="16"/></td>
-         </tr>
-         <tr class="input">
-          <td>Sashimi 12</td>
-          <td><input type="number" class="food" id="sashimi12" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price12" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 13</td>
-          <td><input type="number" class="food" id="sashimi13" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price13" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 14</td>
-          <td><input type="number" class="food" id="sashimi14" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price14" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 15</td>
-          <td><input type="number" class="food" id="sashimi15" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price15" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 16</td>
-          <td><input type="number" class="food" id="sashimi16" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price16" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 17</td>
-          <td><input type="number" class="food" id="sashimi17"  min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price17" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 18</td>
-          <td><input type="number" class="food" id="sashimi18" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price18" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 19</td>
-          <td><input type="number" class="food" id="sashimi19" min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price19" value="16"/></td>
-         </tr>  
-         <tr class="input">
-          <td>Sashimi 20</td>
-          <td><input type="number" class="food" id="sashimi20"  min="0" max="1000" value="0"></input></td>
-          <td><input class="food" type="number" id="price20" value="16"/></td>
-         </tr>  
-         <br>
-       <br>
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-         </tr>  
-         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-         </tr>
 
-      </tbody>
-    </table>
-</table>
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total("qty",-1,"i_total1",3.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total1("qty",1,"i_total1",3.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total1' value="0" />
+      </form>
 </div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+		<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">California roll</td><td class="item_price">$4.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="http://www.makesushi.com/wp-content/uploads/2015/02/mosaic-sushi-roll-evolution.jpg"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
 
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total2("qty2",-1,"i_total2",4.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty2' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total2("qty2",1,"i_total2",4.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total2' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+		<td>
+		<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">California roll</td><td class="item_price">$2.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="http://www.makesushi.com/wp-content/uploads/2015/02/mosaic-sushi-roll-evolution.jpg"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total("qty",-1,"i_total",2,99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total("qty",1,"i_total",2,99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total3' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+		<td>
+
+	
+<!--<br>
+<button onClick="someFunc()">calculate</button>
+<br>
+SubTotal: <input type="text" id="subtotalBox" size="6"/><br>
+Tax: $<input type="text" id="taxBox" size="6"  /><br>
+Grand Total: $<input type="text" name="grandtotalBox" size="6" /><br>
+<br>
+
+</p>
+</div>
 </div>
 <div id="Salesreport" class="tabcontent2">
 	<h3>Sales report</h3>
-	<p>Here is sales report</p>
+	<p>Here is sales report</p>-->
 </div>
 </div>
 </div>
+<script type="text/javascript">
+function item_total1(qty,ud,i_total1,value){
+ qty=document.getElementById(qty);
+ ud>0?qty.value++:qty.value--;
+ qty.value=Math.max(qty.value,0);
+document.getElementById("i_total1").value=qty.value*value;
+}
+function item_total2(qty2,ud2,i_total2,value){
+ qty2=document.getElementById(qty2);
+ ud2>0?qty2.value++:qty2.value--;
+ qty2.value=Math.max(qty2.value,0);
+ document.getElementById("i_total2").value=qty2.value*value;
+}
+
+  </script>
+  <script>
+function agregator(){
+	var v1 = parseFloat(+document.getElementById("i_total1").value || 0);
+	var v2 = parseFloat(+document.getElementById("i_total2").value || 0);
+	var v3 = parseFloat(+document.getElementById("i_total3").value || 0);
+	var result = [(v1 + v2 + v3)];
+	document.getElementById("damt").value = result; 
+}
+
+</script>
 </body>
 
 </html>
+
