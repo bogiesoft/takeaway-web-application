@@ -112,6 +112,118 @@ color: white;
 border:none;}
 }
 
+
+
+#left{
+	margin-left: 10vh;
+
+}
+#right{
+	margin-left: 10vh;
+}
+
+#main{
+  overflow: scroll;
+	height:850px;
+  border: 1px solid #F29E20;
+  position: relative;
+  justify-content: center;
+}
+
+#Takeout {
+	overflow: scroll;
+	height:850px;
+  border: 1px solid #F29E20;
+  position: relative;
+  justify-content: center;
+}
+
+#main table {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#left{
+	margin-left: 0vh;
+  float:left;
+}
+#right{
+	margin-left: 0vh;
+  float:right;
+}
+
+.boxes table tr td input {
+  padding:10px 15px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  font-size: 0.5em;
+}
+.step {
+  border-radius:80px;
+  border:1px solid #ccc;
+  background:#80c0ff;
+  color:#FFF;
+  padding-left:1%;
+  border-bottom:3px solid #d9d9d9;
+  border-radius:2px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 10px;
+} 
+.behind {
+  opacity: 0.3;
+	z-index:-1;
+	position: absolute;
+	display: flex;
+  height: 100%;
+  width: 100%;
+  size: cover;
+}
+
+#step td {
+	font color: #fff;
+}
+.payment select {
+    padding: 10px;
+    margin-right: 15px;
+}
+.payment {
+    text-align: center; ;
+    font-size: 18px;
+    padding: 10px 25px;
+    margin-top: 20px;
+    position: relative;
+}
+.reservbox{ text-align: center;
+  border: 1px solid #c1b9aa;
+  width: 50%;
+  height: 60%;
+color: white;
+border-radius: 25px;
+margin: auto;}
+.reservp {font-size: 16pt;
+color: #F29E20;}
+.submit {
+margin: 10px;
+	color: white;
+	border: 1px solid #F29E20;
+	outline: none;
+	cursor: pointer;
+	background-color: #333333;
+	width: 100px;
+}
+
+.big{
+	color: white;
+	width: 100%;
+	margin: auto;
+
+}
+.small{
+	border: 1px solid #c1b9aa;
+
+
+}
 </style>
 	<script>
 	function opentab1(evt, tabname1) {
@@ -154,46 +266,160 @@ evt.currentTarget.className +=" active";
 	<p>here is a floor plan</p>
 </div>
 <div id="Tips" class="tabcontent1">
-	<h2>Tip calculator</h2>
-Amount $ <input type="text" id="damt">
-<br/>
+	
 
-<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
-tip_percent = parseFloat(document.getElementById('tip').value); 
-tipamt = dinneramt*0.1;
-totalamt=dinneramt +tipamt;
-document.getElementById('tamt').value=tipamt;
-document.getElementById('total').value=totalamt;">10%</button>
-<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
-tip_percent = parseFloat(document.getElementById('tip').value); 
-tipamt = dinneramt*0.15;
-totalamt=dinneramt +tipamt;
-document.getElementById('tamt').value=tipamt;
-document.getElementById('total').value=totalamt;">15%</button>
-<button class=tip_options onclick="dinneramt = parseFloat(document.getElementById('damt').value); 
-tip_percent = parseFloat(document.getElementById('tip').value); 
-tipamt = dinneramt*0.2;
-totalamt=dinneramt +tipamt;
-document.getElementById('tamt').value=tipamt;
-document.getElementById('total').value=totalamt;">20%</button>
-Custom Tip <input type="text" id="tip">%
-<br/>
-<input id="calculate" type="button" value="Calculate" onclick="
-dinneramt = parseFloat(document.getElementById('damt').value); 
+<div id="main">
+
+<div class="step">
+<h2>Tip calculator and payment</h2>
+</div>
+<table>
+<tr>
+<td><font color="#fff">SubTotal:</font></td>
+<td><input type="text" id="subtotalBox" size="20"/></td>
+</tr>
+<tr>
+<td><font color="#fff">Tax:</font></td>
+<td><input type="text" id="taxBox" size="20"  /></td>
+</tr>
+<tr>
+<td>Total:</td>
+<td><input type="text" id="totalBox" size="20" /></td>
+</tr>
+<tr>
+<td><font color="#fff">Tips:</font></td>
+<td>
+<script>
+
+function select(){
+	d = document.getElementById("items").value;
+	alert("Are you sure you want to add" + " " + d);
+	if(d == "10%"){
+		dinneramt = parseFloat(document.getElementById('totalBox').value); 
+					tipamt = dinneramt*0.1;
+					totalamt=dinneramt +tipamt;
+					document.getElementById('tamt').value=tipamt;
+					document.getElementById('total').value=totalamt;
+				}else{
+					false
+				}
+	if(d == "15%"){
+					dinneramt = parseFloat(document.getElementById('totalBox').value); 
+					tipamt = dinneramt*0.15;
+					totalamt=dinneramt +tipamt;
+					document.getElementById('tamt').value=tipamt;
+					document.getElementById('total').value=totalamt;	
+				}else{
+					false
+				}
+	if(d == "20%"){
+					dinneramt = parseFloat(document.getElementById('totalBox').value); 
+					tipamt = dinneramt*0.2;
+					totalamt=dinneramt +tipamt;
+					document.getElementById('tamt').value=tipamt;
+					document.getElementById('total').value=totalamt; 						
+   				}else{
+					false
+				}						
+}		
+</script>
+	<select id="items" name="itemnum" onchange="select()">
+			<option value="" class=tip_options></option>
+			<option value="10%" id="10" class="tip_options">10%</option>
+			<option value="15%" id="15" class="tip_options">15%</option>
+			<option value="20%" id="20" class="tip_options">20%</option>
+	</select>		
+</td>
+</tr>
+<tr>
+<td><font color="#fff">Custom Tip:</font></td>
+<td><input type="text" id="tip"/></td>
+</tr>
+<tr>
+<td></td>
+<td><input id="calculate" type="button" value="Calculate" onclick="
+dinneramt = parseFloat(document.getElementById('totalBox').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*tip_percent/100;
 totalamt=dinneramt +tipamt;
-document.getElementById('tamt').value=tipamt;
-document.getElementById('total').value=totalamt; ">
+document.getElementById('tamt').value=tipamt;             
+document.getElementById('total').value=totalamt;"></td>
+</tr>
+<tr>
+<td><font color="#fff">Tip amount:</font></td>
+<td><input type="text" id="tamt" size="20"></td>
+</tr>
+<tr>
+<td><font color="#fff">Grand Total:</font></td>
+<td><input type="text" id="total" size="20"/></td>
+</tr>
 
-	<br/>
-Subtotal: $ <
-Tip amount: $<input type="text" id="tamt">
-</br>
-Total: $<input type="text" id="total">
+</table>
 
-	
+
+<div class="step">
+<h2>Payment information</h2>
+
+
+<table class="payment">
+                <form>
+                    <tr>
+                        <td><label >Owner</label></td>
+                        <td><input type="text" class="form-control" id="owner"></td>
+                    </tr>
+                    <tr>
+                        <td><label>CVV</label></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr >
+                        <td><label>Card Number</label></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr >
+                        <td><label>Expiration Date</label></td>
+                        <td><select>
+                            <option value="01">January</option>
+                            <option value="02">February </option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        <select>
+                            <option value="16"> 2016</option>
+                            <option value="17"> 2017</option>
+                            <option value="18"> 2018</option>
+                            <option value="19"> 2019</option>
+                            <option value="20"> 2020</option>
+                            <option value="21"> 2021</option>
+                        </select></td>
+                    </tr>
+                    <div class="form-group" id="credit_cards">
+                        <img src="https://raw.githubusercontent.com/samnar2017/samnar2017.github.io/master/folder/visa.jpg" id="visa">
+                        <img src="https://raw.githubusercontent.com/samnar2017/samnar2017.github.io/master/folder/mastercard.jpg" id="mastercard">
+                        <img src="https://raw.githubusercontent.com/samnar2017/samnar2017.github.io/master/folder/amex.jpg" id="amex">
+                    </div>
+                    <div class="form-group" id="pay-now">
+                        <button type="submit" class="btn btn-default" id="confirm-purchase">Check Out</button>
+                    </div>
+                </form>
+            </div>  
+
+
+</table>
 </div>
+</div>
+</div>
+
+
+
+
 	</div>
 	<div class="rl">
 <button class="tablinks2" onclick="opentab2(event, 'Reservation')">Reservation</button>
@@ -211,75 +437,64 @@ Total: $<input type="text" id="total">
    }
 
   </style>
-	<h3>Reservation</h3>
-	<div class="container">
-<div class="row col-md-9 col-md-offset-3">
+<div class="reservbox">
 <form>
+<p class="reservp">Guest information</p><br/>
 
-	<div class="row col-md-9 col-md-offset-3">
-	  Name : <input type="text" name="fullname"><br>
-	  <br>
-	  Phone: <input type="text" name="Phonenumber"><br>
-	  <br>
-	  <label>Guest:</label>
-	  <select>
-	  <option>01</option>
-	  	<option>02</option>
-	  	<option>03</option>
-	  	<option>04</option>
-	  </select>
+	
+	  <label for="name">Name : <input type="text" placeholder="Guest name" name="name"></label><br/>
+	  <br/>
+	
+	  <label for="contactnumber"> Phone: <input type="text" placeholder="Contact number" name="contactnumber"></label>
+	<br/><br/>
 
-	</div>
-  Reservation (date and time):<br/>
-  <input id = "date" type="datetime-local" name="Resevation time">
-</form>
-</div>
-<br>
-<table>
-<tr id="rno1">
-    <td id="tno1" onclick="bookTable(1)">Table1</td> 
-    <td id="tno2" onclick="bookTable(2)">Table2</td>
-    <td id="tno3" onclick="bookTable(3)">Table3</td>
-   </tr>
-<tr id="rno2">
-    <td id="tno4" onclick="bookTable(4)">Table4</td> 
-    <td id="tno5" onclick="bookTable(5)">Table5</td>
-    <td id="tno6" onclick="bookTable(6)">Table6</td>
-    </tr>
-<tr id="rno3">
-    <td id="tno7" onclick="bookTable(7)">Table7</td> 
-    <td id="tno8" onclick="bookTable(8)">Table8</td>
-    <td id="tno9" onclick="bookTable(9)">Table9</td>
-    </tr>
-<tr id="rno4"> 
-	<td id="tno10" onclick="bookTable(10)">Table10</td>
-	</tr>
+<p class="reservp">Reservation details</p>
+	  <label>Number of guests:</label><select>
+	  <option value="1">1 person</option>
+	  	<option value="2">2 people</option>
+	  	<option value="3">3 people</option>
+	  	<option value="4">4 people</option>
+	  </select> <br/>
+	  <br/>
 
-</table>
-  <script>
-  function bookTable(a) {
-    var x="tno"+a;
-    if(document.getElementById(x).innerHTML=="Reserved"){
-      document.getElementById(x).innerHTML="Table"+a;
-      document.getElementById(x).style.backgroundColor = "grey";
-    }
-    else{
-      document.getElementById(x).innerHTML="Reserved";
-      document.getElementById(x).style.backgroundColor = "red";
-    }
-  }
-  </script>
-    <br>
-    <div class="controls">
-          <textarea name="comments" class="floatLabel" id="comments"></textarea>
-          <label id="comments" for="comments">Comments</label>
-     </div>
-     <br>
+		<label>Date: <input id = "date" type="date" min="08/12/2017"></label><br/><br/>
+		<label>Time: </label>
+		<select>
+		<option>12.00</option>
+		<option>12.30</option>
+		<option>1.00</option>
+		<option>1.30</option>
+		<option>2.00</option>
+		<option>2.30</option>
+		<option>3.00</option>
+		<option>3.30</option>
+		<option>4.00</option>
+		<option>4.30</option>
+		<option>5.00</option>
+		<option>5.30</option>
+		<option>6.00</option>
+		<option>6.30</option>
+		<option>7.00</option>
+		<option>7.30</option>
+		<option>8.00</option>
+		<option>8.30</option>
+		<option>9.00</option>
+		<option>9.30</option>
+		<option>10.00</option>
+		<option>10.30</option>
+		</select>
+		<label>PM</label>
 
-</div>
-<div class="row col-md-8 col-md-offset-4">
-	 <input type="submit" value="Submit" class="btn-info" onclick="info()">
-</div>
+<br/>
+    <br/>
+    <label id="comments" for="comments">Comments</label>
+          <textarea name="comments" class="comments" id="comments"></textarea>
+
+     <br/>
+     <br/>
+	 <button class="submit" onclick="reservtable()">Submit</button> <br/>
+	 </form>
+	 </div>
 </div>
 
 
@@ -290,7 +505,7 @@ Total: $<input type="text" id="total">
 		<td>
 			<table class="small">
 			<tr class="item_top"><td rowspan="2" class="item_name">California roll</td><td class="item_price">$3.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="/anago.jpg"></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/samnar2017/samnar2017.github.io/blob/master/anago.jpg?raw=true"></td></tr>
 			<tr class="item_buttom"><td colspan="2">
 
 
@@ -298,9 +513,9 @@ Total: $<input type="text" id="total">
 <div id="purhcaseForm">
 	 <form id="purchase">
 		 
-		 <input class="btn_total" type='button' name='subtract' onclick='item_total("qty",-1,"i_total1",3.99);' value='-'>
-		 <input class="item_total" type='text' name='qty' id='qty' readonly=true value="0">
-		 <input class="btn_total" type='button' name='add' onclick='item_total1("qty",1,"i_total1",3.99);' value='+'/>
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total1("qty1",-1,"i_total1",7.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty1' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total1("qty1",1,"i_total1",7.99);' value='+'/>
 		 
 		 <input class="item_total" type='text' name='i_total' id='i_total1' value="0" />
       </form>
@@ -310,19 +525,19 @@ Total: $<input type="text" id="total">
 			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
 			</table>
 			</td>
+	<!--second item-->
 		<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">California roll</td><td class="item_price">$4.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="http://www.makesushi.com/wp-content/uploads/2015/02/mosaic-sushi-roll-evolution.jpg"></td></tr>
+			<tr class="item_top"><td rowspan="2" class="item_name">Hirame Fluke</td><td class="item_price">$7.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/fluke.jpg?raw=true"></td></tr>
 			<tr class="item_buttom"><td colspan="2">
 
 
 <div id="purhcaseForm">
 	 <form id="purchase">
-		 
-		 <input class="btn_total" type='button' name='subtract' onclick='item_total2("qty2",-1,"i_total2",4.99);' value='-'>
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total2("qty2",-1,"i_total2",7.99);' value='-'>
 		 <input class="item_total" type='text' name='qty' id='qty2' readonly=true value="0">
-		 <input class="btn_total" type='button' name='add' onclick='item_total2("qty2",1,"i_total2",4.99);' value='+'/>
+		 <input class="btn_total" type='button' name='add' onclick='item_total2("qty2",1,"i_total2",7.99);' value='+'/>
 		 
 		 <input class="item_total" type='text' name='i_total' id='i_total2' value="0" />
       </form>
@@ -332,20 +547,20 @@ Total: $<input type="text" id="total">
 			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
 			</table>
 			</td>
-		<td>
+		<!--third item-->
 		<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">California roll</td><td class="item_price">$2.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="http://www.makesushi.com/wp-content/uploads/2015/02/mosaic-sushi-roll-evolution.jpg"></td></tr>
+			<tr class="item_top"><td rowspan="2" class="item_name">Maguro Tuna</td><td class="item_price">$7.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/tuna.jpg?raw=true"></td></tr>
 			<tr class="item_buttom"><td colspan="2">
 
 
 <div id="purhcaseForm">
 	 <form id="purchase">
 		 
-		 <input class="btn_total" type='button' name='subtract' onclick='item_total("qty",-1,"i_total",2,99);' value='-'>
-		 <input class="item_total" type='text' name='qty' id='qty' readonly=true value="0">
-		 <input class="btn_total" type='button' name='add' onclick='item_total("qty",1,"i_total",2,99);' value='+'/>
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total3("qty3",-1,"i_total3",7.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty3' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total3("qty3",1,"i_total3",7.99);' value='+'/>
 		 
 		 <input class="item_total" type='text' name='i_total' id='i_total3' value="0" />
       </form>
@@ -355,7 +570,427 @@ Total: $<input type="text" id="total">
 			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
 			</table>
 			</td>
-		<td>
+</tr>
+<tr>
+<!--fourth item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Masu Trout</td><td class="item_price">$8.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/seaTrout.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total4("qty4",-1,"i_total4",8.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty4' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total4("qty4",1,"i_total4",8.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total4' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+<!--fifth item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Kani Crab</td><td class="item_price">$8.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/crab.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total5("qty5",-1,"i_total5",8.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty5' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total5("qty5",1,"i_total5",8.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total5' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+<!--sixth item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Anago Eel</td><td class="item_price">$8.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/anago.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total6("qty6",-1,"i_total6",8.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty6' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total6("qty6",1,"i_total6",8.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total6' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+<!--seventh item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Sake Salmon</td><td class="item_price">$8.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/salmonSushi.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total7("qty7",-1,"i_total7",8.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty7' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total7("qty7",1,"i_total7",8.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total7' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+	<!--eighth item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Smoked Sake</td><td class="item_price">$10.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/smokedHamachi.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total8("qty8",-1,"i_total8",10.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty8' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total8("qty8",1,"i_total8",10.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total8' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+<!--ninth item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Hotate Scallop</td><td class="item_price">$10.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/scallop.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total9("qty9",-1,"i_total9",10.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty9' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total9("qty9",1,"i_total9",10.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total9' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+</tr>
+<tr>
+<!--tenth item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Hamachi Yellowtail</td><td class="item_price">$10.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/smokedHamachi.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total10("qty10",-1,"i_total10",10.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty10' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total10("qty10",1,"i_total10",10.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total10' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+<!--eleventh item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Unagi Eel</td><td class="item_price">$10.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/uni.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total11("qty11",-1,"i_total11",10.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty11' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total11("qty11",1,"i_total11",10.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total11' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+<!--twelth item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Kanpachi Amberjack</td><td class="item_price">$12.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/kanpachi.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total12("qty12",-1,"i_total12",12.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty12' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total12("qty12",1,"i_total12",12.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total12' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+</tr>
+<tr>
+<!--thirteenth item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Botan Ebi</td><td class="item_price">$12.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/shrimp.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total13("qty13",-1,"i_total13",12.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty13' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total13("qty13",1,"i_total13",12.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total13' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+<!--14th item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Ese Ebi</td><td class="item_price">$14.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/lobster.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total14("qty14",-1,"i_total14",14.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty14' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total14("qty14",1,"i_total14",14.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total14' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+<!--15th item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Karai Ebi</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/spicyLobster.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total15("qty15",-1,"i_total15",15.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty15' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total15("qty15",1,"i_total15",15.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total15' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+			</tr>
+
+<!--16th item-->
+<tr>
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Toro Tuna</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/toro.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total16("qty16",-1,"i_total16",15.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty16' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total16("qty16",1,"i_total16",15.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total16' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+<!--17th item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Taco Octopus</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/octopus.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total17("qty17",-1,"i_total17",15.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty17' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total17("qty17",1,"i_total17",15.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total17' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+			
+<!--18th item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Tamago Egg</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/egg.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total18("qty18",-1,"i_total18",15.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty18' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total18("qty18",1,"i_total18",15.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total18' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+			</tr>
+<!--19th item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Binnaga Albacore</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/albacore.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total19("qty19",-1,"i_total19",15.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty19' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total19("qty19",1,"i_total19",15.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total19' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+<!--20th item-->
+
+				<td>
+			<table class="small">
+			<tr class="item_top"><td rowspan="2" class="item_name">Hedai Porgy</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
+			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/bronzini.jpg?raw=true"></td></tr>
+			<tr class="item_buttom"><td colspan="2">
+
+
+<div id="purhcaseForm">
+	 <form id="purchase">
+		 
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total20("qty20",-1,"i_total20",15.99);' value='-'>
+		 <input class="item_total" type='text' name='qty' id='qty20' readonly=true value="0">
+		 <input class="btn_total" type='button' name='add' onclick='item_total20("qty20",1,"i_total20",15.99);' value='+'/>
+		 
+		 <input class="item_total" type='text' name='i_total' id='i_total20' value="0" />
+      </form>
+</div>
+</td>
+			</tr>
+			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			</table>
+			</td>
+			</tr>
 
 	
 <!--<br>
@@ -376,11 +1011,11 @@ Grand Total: $<input type="text" name="grandtotalBox" size="6" /><br>
 </div>
 </div>
 <script type="text/javascript">
-function item_total1(qty,ud,i_total1,value){
- qty=document.getElementById(qty);
- ud>0?qty.value++:qty.value--;
- qty.value=Math.max(qty.value,0);
-document.getElementById("i_total1").value=qty.value*value;
+function item_total1(qty1,ud1,i_total1,value){
+ qty1=document.getElementById(qty1);
+ ud1>0?qty1.value++:qty1.value--;
+ qty1.value=Math.max(qty1.value,0);
+document.getElementById("i_total1").value=qty1.value*value;
 }
 function item_total2(qty2,ud2,i_total2,value){
  qty2=document.getElementById(qty2);
@@ -389,17 +1024,146 @@ function item_total2(qty2,ud2,i_total2,value){
  document.getElementById("i_total2").value=qty2.value*value;
 }
 
-  </script>
-  <script>
+function item_total3(qty3,ud3,i_total3,value){
+ qty3=document.getElementById(qty3);
+ ud3>0?qty3.value++:qty3.value--;
+ qty3.value=Math.max(qty3.value,0);
+document.getElementById("i_total3").value=qty3.value*value;
+}
+function item_total4(qty4,ud4,i_total4,value){
+ qty4=document.getElementById(qty4);
+ ud4>0?qty4.value++:qty4.value--;
+ qty4.value=Math.max(qty4.value,0);
+ document.getElementById("i_total4").value=qty4.value*value;
+}
+function item_total5(qty5,ud5,i_total5,value){
+ qty5=document.getElementById(qty5);
+ ud5>0?qty5.value++:qty5.value--;
+ qty5.value=Math.max(qty5.value,0);
+document.getElementById("i_total5").value=qty5.value*value;
+}
+function item_total6(qty6,ud6,i_total6,value){
+ qty6=document.getElementById(qty6);
+ ud6>0?qty6.value++:qty6.value--;
+ qty6.value=Math.max(qty6.value,0);
+ document.getElementById("i_total6").value=qty6.value*value;
+}
+
+function item_total7(qty7,ud7,i_total7,value){
+ qty7=document.getElementById(qty7);
+ ud7>0?qty7.value++:qty7.value--;
+ qty7.value=Math.max(qty7.value,0);
+document.getElementById("i_total7").value=qty7.value*value;
+}
+function item_total8(qty8,ud8,i_total8,value){
+ qty8=document.getElementById(qty8);
+ ud8>0?qty8.value++:qty8.value--;
+ qty8.value=Math.max(qty8.value,0);
+ document.getElementById("i_total8").value=qty8.value*value;
+}
+function item_total9(qty9,ud9,i_total9,value){
+ qty9=document.getElementById(qty9);
+ ud9>0?qty9.value++:qty9.value--;
+ qty9.value=Math.max(qty9.value,0);
+document.getElementById("i_total9").value=qty9.value*value;
+}
+function item_total10(qty10,ud10,i_total10,value){
+ qty10=document.getElementById(qty10);
+ ud10>0?qty10.value++:qty10.value--;
+ qty10.value=Math.max(qty10.value,0);
+ document.getElementById("i_total10").value=qty10.value*value;
+}
+
+function item_total11(qty11,ud11,i_total11,value){
+ qty11=document.getElementById(qty11);
+ ud11>0?qty11.value++:qty11.value--;
+ qty11.value=Math.max(qty11.value,0);
+document.getElementById("i_total11").value=qty11.value*value;
+}
+function item_total12(qty12,ud12,i_total12,value){
+ qty12=document.getElementById(qty12);
+ ud12>0?qty12.value++:qty12.value--;
+ qty12.value=Math.max(qty12.value,0);
+ document.getElementById("i_total12").value=qty12.value*value;
+}
+function item_total13(qty13,ud13,i_total13,value){
+ qty13=document.getElementById(qty13);
+ ud13>0?qty13.value++:qty13.value--;
+ qty13.value=Math.max(qty13.value,0);
+document.getElementById("i_total13").value=qty13.value*value;
+}
+function item_total14(qty14,ud14,i_total14,value){
+ qty14=document.getElementById(qty14);
+ ud14>0?qty14.value++:qty14.value--;
+ qty14.value=Math.max(qty14.value,0);
+ document.getElementById("i_total14").value=qty14.value*value;
+}
+
+function item_total15(qty15,ud15,i_total15,value){
+ qty15=document.getElementById(qty15);
+ ud15>0?qty15.value++:qty15.value--;
+ qty15.value=Math.max(qty15.value,0);
+document.getElementById("i_total15").value=qty15.value*value;
+}
+function item_total16(qty16,ud16,i_total16,value){
+ qty16=document.getElementById(qty16);
+ ud16>0?qty16.value++:qty16.value--;
+ qty16.value=Math.max(qty16.value,0);
+ document.getElementById("i_total16").value=qty16.value*value;
+}
+function item_total17(qty17,ud17,i_total17,value){
+ qty17=document.getElementById(qty17);
+ ud17>0?qty17.value++:qty17.value--;
+ qty17.value=Math.max(qty17.value,0);
+document.getElementById("i_total17").value=qty17.value*value;
+}
+function item_total18(qty18,ud18,i_total18,value){
+ qty18=document.getElementById(qty18);
+ ud18>0?qty18.value++:qty18.value--;
+ qty18.value=Math.max(qty18.value,0);
+ document.getElementById("i_total18").value=qty18.value*value;
+}
+
+function item_total19(qty19,ud19,i_total19,value){
+ qty19=document.getElementById(qty19);
+ ud19>0?qty19.value++:qty19.value--;
+ qty19.value=Math.max(qty19.value,0);
+document.getElementById("i_total19").value=qty19.value*value;
+}
+function item_total20(qty20,ud20,i_total20,value){
+ qty20=document.getElementById(qty20);
+ ud20>0?qty20.value++:qty20.value--;
+ qty20.value=Math.max(qty20.value,0);
+ document.getElementById("i_total20").value=qty20.value*value;
+}
+
 function agregator(){
 	var v1 = parseFloat(+document.getElementById("i_total1").value || 0);
 	var v2 = parseFloat(+document.getElementById("i_total2").value || 0);
 	var v3 = parseFloat(+document.getElementById("i_total3").value || 0);
-	var result = [(v1 + v2 + v3)];
+	var v4 = parseFloat(+document.getElementById("i_total4").value || 0);
+	var v5 = parseFloat(+document.getElementById("i_total5").value || 0);
+	var v6 = parseFloat(+document.getElementById("i_total6").value || 0);
+	var v7 = parseFloat(+document.getElementById("i_total7").value || 0);
+	var v8 = parseFloat(+document.getElementById("i_total8").value || 0);
+	var v9 = parseFloat(+document.getElementById("i_total9").value || 0);
+	var v10 = parseFloat(+document.getElementById("i_total10").value || 0);
+	var v11 = parseFloat(+document.getElementById("i_total11").value || 0);
+	var v12 = parseFloat(+document.getElementById("i_total12").value || 0);
+	var v13 = parseFloat(+document.getElementById("i_total13").value || 0);
+	var v14 = parseFloat(+document.getElementById("i_total14").value || 0);
+	var v15 = parseFloat(+document.getElementById("i_total15").value || 0);
+	var v16 = parseFloat(+document.getElementById("i_total16").value || 0);
+	var v17 = parseFloat(+document.getElementById("i_total17").value || 0);
+	var v18 = parseFloat(+document.getElementById("i_total18").value || 0);
+	var v19 = parseFloat(+document.getElementById("i_total19").value || 0);
+	var v20 = parseFloat(+document.getElementById("i_total20").value || 0);
+	var result = [(v1 + v2 + v3 + v4 + v5 + v6 + v7 + v8 + v9 + v10 + v11 + v12 + v13 + v14 + v15 + v16 + v17 + v18 + v19 + v20)];
 	document.getElementById("damt").value = result; 
 }
 
-</script>
+
+  </script>
 </body>
 
 </html>
