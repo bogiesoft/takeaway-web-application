@@ -341,7 +341,8 @@ evt.currentTarget.className +=" active";
 </script>
 
 </head>
-<body onload="opentab2(event, 'Reservation'), opentab1(event, 'Floorplan')";><div id="container">
+<body onload="opentab2(event, 'Reservation'), opentab1(event, 'Floorplan')";>
+<div id="container">
 	<div class="rl" ";>
 <button class="tablinks1" onclick="opentab1(event, 'Floorplan')">Floor Plan</button>
 <button class="tablinks1" onclick="opentab1(event, 'Tips'); " id='tips'>Payment</button> 
@@ -543,7 +544,8 @@ document.getElementById('total').value=totalamt;"></td>
 
 	</div>
 	<div class="rl">
-<button class="tablinks2" onclick="opentab2(event, 'Reservation')">Reservation</button>
+<button class="tablinks2" id="reservation" onclick="opentab2(event, 'Reservation'), opentab1(event, 'Floorplan')">Reservation</button>
+
 <button class="tablinks2" onclick="opentab2(event, 'Takeout') ,  opentab1(event, 'Tips');" id='takeout'>Take Out
 </button>
 <button class="tablinks2" onclick="opentab2(event, 'Salesreport')">Sales Report</button>
@@ -1258,7 +1260,7 @@ function item_total20(qty20,ud20,i_total20,value){
  document.getElementById("i_total20").value=qty20.value*value;
 }
 
-function agregator(){
+function subtotal(){
 	var v1 = parseFloat(+document.getElementById("i_total1").value || 0);
 	var v2 = parseFloat(+document.getElementById("i_total2").value || 0);
 	var v3 = parseFloat(+document.getElementById("i_total3").value || 0);
@@ -1280,11 +1282,35 @@ function agregator(){
 	var v19 = parseFloat(+document.getElementById("i_total19").value || 0);
 	var v20 = parseFloat(+document.getElementById("i_total20").value || 0);
 	var result = [(v1 + v2 + v3 + v4 + v5 + v6 + v7 + v8 + v9 + v10 + v11 + v12 + v13 + v14 + v15 + v16 + v17 + v18 + v19 + v20)];
-	document.getElementById("damt").value = result; 
+	document.getElementById("subtotalBox").value = result; 
+}
+function count2()
+{
+  var tax  = parseFloat(document.getElementById("subtotalBox").value);
+  var result = (tax * 0.0878);
+  document.getElementById("taxBox").value = result;
+}
+function count3()
+{
+  var tax = parseFloat(document.getElementById("taxBox").value);
+  var subtotal = parseFloat(document.getElementById("subtotalBox").value);
+  var result = [(subtotal + tax)];
+  document.getElementById("totalBox").value = result;
+}
+function fill(){
+  var text = document.getElementById("totalBox").value;
+  document.getElementById("totalBox").value = text;
 }
 
+function agregator(){
+	subtotal();
+	count2();
+	count3();
+	fill()
+}
 
   </script>
+
 </body>
 
 </html>
