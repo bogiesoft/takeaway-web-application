@@ -415,7 +415,7 @@ window.onclick=function () {
 
 function select(){
 	d = document.getElementById("items").value;
-	alert(d + " " + "people were selected");
+	alert("Are you sure you want to add" + " " + d);
 	if(d == "10%"){
 		dinneramt = parseFloat(document.getElementById('totalBox').value); 
 					tipamt = dinneramt*0.1;
@@ -572,14 +572,14 @@ document.getElementById('total').value=totalamt;"></td>
 	<br/><br/>
 <script>function selectpeople(){
 	d = document.getElementById("people").value;
-	alert(d + " " + "people were selected");
+	alert( d + " " + "people were selected");
 }
 </script>
 <p class="reservp">Reservation details</p>
 	  <label>Number of guests:</label>
 	  <select id="people" onchange="selectpeople()">
-		<option  value=""></option>			   
-	        <option  value="1">1 person</option>
+	  <option  value="0"></option>
+	  <option  value="1">1 person</option>
 	  	<option  value="2">2 people</option>
 	  	<option  value="3">3 people</option>
 	  	<option  value="4">4 people</option>
