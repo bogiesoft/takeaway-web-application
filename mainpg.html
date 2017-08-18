@@ -69,16 +69,27 @@ div.rl button.active {}
 
 }
 
-.tabcontent2{
+.tabcontent1,.tabcontent2{
 	height: 140vh;
-	width: 100%;
 	overflow-y:auto;
-
 }
 
+/* Track */
+.tabcontent1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #282621; 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+.tabcontent1::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #F29E20; 
 
-.tabcontent2::-webkit-scrollbar {
-    width: 10px;
+}
+.tabcontent1::-webkit-scrollbar {
+    width: 5px;
 }
  
 /* Track */
@@ -408,29 +419,47 @@ window.onclick=function () {
 <td>Total:</td>
 <td><input type="text" id="totalBox" size="20" /></td>
 </tr>
-<tr>
-<td><font color="#fff">Tips:</font></td>
-<td>
+</table>
+<table>
+ <tr>
+ <td></td>
+
+<script>
+  window.toggle = function() { 
+    // get the Div 
+    var myDiv = document.getElementById('show');
+
+    // now toggle the visibility, depending on current state
+    if (myDiv.style.display == 'none') { 
+      // Div is visible. hide it
+      myDiv.style.display = 'block';
+    } else { 
+      // Div is hidden. show it 
+      myDiv.style.display = 'none';
+  }
+}
+         
+</script>  
+<td><input type="button" onclick="toggle()" value="Tips calculator"\></td>
+</tr>
+</table>
+
+
+<div id="show" style="display: none"> 
+<table>
+<td><font color="#fff">Tips:</font></td> 
 <script>
 
 function select(){
 	d = document.getElementById("items").value;
 	alert("Are you sure you want to add" + " " + d);
-	if(d == "10%"){
-		dinneramt = parseFloat(document.getElementById('totalBox').value); 
-					tipamt = dinneramt*0.1;
-					totalamt=dinneramt +tipamt;
-					document.getElementById('tamt').value=tipamt;
-					document.getElementById('total').value=totalamt;
-				}else{
-					false
-				}
+
 	if(d == "15%"){
-					dinneramt = parseFloat(document.getElementById('totalBox').value); 
+		dinneramt = parseFloat(document.getElementById('totalBox').value); 
 					tipamt = dinneramt*0.15;
 					totalamt=dinneramt +tipamt;
 					document.getElementById('tamt').value=tipamt;
-					document.getElementById('total').value=totalamt;	
+					document.getElementById('total').value=totalamt;
 				}else{
 					false
 				}
@@ -445,13 +474,14 @@ function select(){
 				}						
 }		
 </script>
+<td>
 	<select id="items" name="itemnum" onchange="select()">
 			<option value="" class=tip_options></option>
-			<option value="10%" id="10" class="tip_options">10%</option>
 			<option value="15%" id="15" class="tip_options">15%</option>
 			<option value="20%" id="20" class="tip_options">20%</option>
 	</select>		
 </td>
+</p>
 </tr>
 <tr>
 <td><font color="#fff">Custom Tip:</font></td>
@@ -459,13 +489,19 @@ function select(){
 </tr>
 <tr>
 <td></td>
-<td><input id="calculate" type="button" value="Calculate" onclick="
+<script>
+function custom(){ 
 dinneramt = parseFloat(document.getElementById('totalBox').value); 
 tip_percent = parseFloat(document.getElementById('tip').value); 
 tipamt = dinneramt*tip_percent/100;
+alert("Are you sure you want to add" + " " + tip_percent + " " + "percent ?");
 totalamt=dinneramt +tipamt;
 document.getElementById('tamt').value=tipamt;             
-document.getElementById('total').value=totalamt;"></td>
+document.getElementById('total').value=totalamt;
+}
+</script>
+<td><input id="calculate" type="button" value="Calculate" onclick="custom()"/>
+</td>
 </tr>
 <tr>
 <td><font color="#fff">Tip amount:</font></td>
@@ -476,14 +512,17 @@ document.getElementById('total').value=totalamt;"></td>
 <td><input type="text" id="total" size="20"/></td>
 </tr>
 
-</table>
+</div>
 
+</table>
+</div>
 
 <div class="step">
 <h2>Payment information</h2>
 
 
 <table class="payment">
+
                 <form>
                     <tr>
                         <td><label >Owner</label></td>
@@ -512,8 +551,8 @@ document.getElementById('total').value=totalamt;"></td>
                             <option value="10">October</option>
                             <option value="11">November</option>
                             <option value="12">December</option>
-                        </select>
-                        <select>
+                        </select></td>
+                        <td><select>
                             <option value="16"> 2016</option>
                             <option value="17"> 2017</option>
                             <option value="18"> 2018</option>
@@ -522,19 +561,24 @@ document.getElementById('total').value=totalamt;"></td>
                             <option value="21"> 2021</option>
                         </select></td>
                     </tr>
+
                     <div class="form-group" id="credit_cards">
                         <img src="https://raw.githubusercontent.com/samnar2017/samnar2017.github.io/master/folder/visa.jpg" id="visa">
                         <img src="https://raw.githubusercontent.com/samnar2017/samnar2017.github.io/master/folder/mastercard.jpg" id="mastercard">
                         <img src="https://raw.githubusercontent.com/samnar2017/samnar2017.github.io/master/folder/amex.jpg" id="amex">
+
                     </div>
-                    <div class="form-group" id="pay-now">
-                        <button type="submit" class="btn btn-default" id="confirm-purchase">Check Out</button>
-                    </div>
+                    
                 </form>
+                
             </div>  
 
 
+
 </table>
+<p><div class="form-group" id="pay-now">
+                        <button type="submit" class="btn btn-default" id="confirm-purchase">Check Out</button>
+                    </div></p>
 </div>
 </div>
 </div>
