@@ -1304,14 +1304,16 @@ document.getElementById('total').value=totalamt;
 
 	
 	function popup() {
-		/*if(document.getElementById("Reservation").style.display == "none")*/
+		setTimeout(function(){
+		/*if(document.getElementById("Reservation").style.display == "none")or*/
 		//if( $('.small').is(':visible') ){
-        //alert("20 items were loaded");
+        //alert("20 items were loaded");or
         var rowIndex = 0; // rowindex, in this case the first row  table
 		var table = document.getElementById('big'); // table to perform search on
 		var cells = table.getElementsByTagName('td');
 		var cellCount = cells.length;
 		alert(cellCount + " " + "items were loaded"); 
+	},1000);
 	}
 
 
