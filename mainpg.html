@@ -7,14 +7,11 @@
 body{
 	background-image: url(https://samuraidiner.000webhostapp.com/1.jpg);
 	background-size: cover;
-	
-	-webkit-filter: blur(0px);
 }
 .rl{
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #F29E20;
   border-radius: 35px;
-
   float:left; 
   width:49%; height: 120vh;}
 
@@ -69,10 +66,6 @@ div.rl button.active {}
 
 }
 
-.tabcontent1,.tabcontent2{
-	height: 140vh;
-	overflow-y:auto;
-}
 
 /* Track */
 .tabcontent1::-webkit-scrollbar-track {
@@ -159,7 +152,7 @@ margin: 10px;
 	background-color: #333333;
 	width: 100px;
 }
-.big{
+#big{
 	color: white;
 
 }
@@ -219,7 +212,7 @@ border:none;}
 
 #main{
   overflow: scroll;
-	height:850px;
+	height:990px;
   border: 1px solid #F29E20;
   position: relative;
   justify-content: center;
@@ -227,7 +220,7 @@ border:none;}
 
 #Takeout {
 	overflow: scroll;
-	height:850px;
+	height:990px;
   border: 1px solid #F29E20;
   position: relative;
   justify-content: center;
@@ -308,7 +301,7 @@ margin: 10px;
 	width: 100px;
 }
 
-.big{
+#big{
 	color: white;
 	width: 100%;
 	margin: auto;
@@ -319,7 +312,10 @@ margin: 10px;
 
 
 }
+
+
 </style>
+
 	<script>
 
 	function opentab1(evt, tabname1) {
@@ -335,7 +331,7 @@ margin: 10px;
 document.getElementById(tabname1).style.display = "block";
 evt.currentTarget.className +=" active";
 }
-function opentab2(evt, tabname2) {
+function opentab2(evt, tabname2,) {
 	var i, tabcontent2, tablinks2;
 	tabcontent2 = document.getElementsByClassName("tabcontent2");
 	for (var i = 0; i<tabcontent2.length; i++) {
@@ -349,8 +345,648 @@ document.getElementById(tabname2).style.display = "block";
 evt.currentTarget.className +=" active";
 }
 
-</script>
 
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause(){
+    if(running == 0){
+        running = 1;
+        increment();
+    document.getElementById("start").innerHTML = "Stop";
+    document.getElementById("startPause").style.backgroundColor = "red";   
+    document.getElementById("startPause").style.borderColor = "red";
+    document.getElementById("timein").innerHTML = getTimeStamp();
+    }
+    else{
+        running = 0;
+    document.getElementById("start").innerHTML = "Resume"; 
+    document.getElementById("startPause").style.backgroundColor = "green"; 
+    document.getElementById("startPause").style.borderColor = "green";
+    }
+}
+function getTimeStamp() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset(){
+    running = 0;
+    time = 0;
+    document.getElementById("start").innerHTML = "Start";
+    document.getElementById("output").innerHTML = "0:00:00:00";
+    document.getElementById("startPause").style.backgroundColor = "green"; 
+    document.getElementById("startPause").style.borderColor = "green";
+    document.getElementById("timein").innerHTML = resetTimestamp();
+}
+
+
+function resetTimestamp() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output").innerHTML = hours + ":" + mins + ":" + secs + ":" + tenths + "0";
+            increment();
+            
+        },100)
+        	
+    }
+}
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause1(){
+    if(running == 0){
+        running = 1;
+        increment1();
+    document.getElementById("start1").innerHTML = "Stop";
+    document.getElementById("startPause1").style.backgroundColor = "red";   
+    document.getElementById("startPause1").style.borderColor = "red";
+    document.getElementById("timein1").innerHTML = getTimeStamp1();
+    }
+    else{
+        running = 0;
+    document.getElementById("start1").innerHTML = "Resume"; 
+    document.getElementById("startPause1").style.backgroundColor = "green"; 
+    document.getElementById("startPause1").style.borderColor = "green";
+    }
+}
+function getTimeStamp1() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset1(){
+    running = 0;
+    time = 0;
+    document.getElementById("start1").innerHTML = "Start";
+    document.getElementById("output1").innerHTML = "0:00:00:00";
+    document.getElementById("startPause1").style.backgroundColor = "green"; 
+    document.getElementById("startPause1").style.borderColor = "green";
+    document.getElementById("timein1").innerHTML = resetTimestamp1();
+}
+
+
+function resetTimestamp1() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment1(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output1").innerHTML = hours + " :" + mins + ":" + secs + ":" + tenths + "0";
+            increment1();
+            
+        },100)
+        	
+    }
+}
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause2(){
+    if(running == 0){
+        running = 1;
+        increment2();
+    document.getElementById("start2").innerHTML = "Stop";
+    document.getElementById("startPause2").style.backgroundColor = "red";   
+    document.getElementById("startPause2").style.borderColor = "red";
+    document.getElementById("timein2").innerHTML = getTimeStamp1();
+    }
+    else{
+        running = 0;
+    document.getElementById("start2").innerHTML = "Resume"; 
+    document.getElementById("startPause2").style.backgroundColor = "green"; 
+    document.getElementById("startPause2").style.borderColor = "green";
+    }
+}
+function getTimeStamp2() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset2(){
+    running = 0;
+    time = 0;
+    document.getElementById("start2").innerHTML = "Start";
+    document.getElementById("output2").innerHTML = "0:00:00:00";
+    document.getElementById("startPause2").style.backgroundColor = "green"; 
+    document.getElementById("startPause2").style.borderColor = "green";
+    document.getElementById("timein2").innerHTML = resetTimestamp2();
+}
+
+
+function resetTimestamp2() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment2(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output2").innerHTML = hours + " :" + mins + ":" + secs + ":" + tenths + "0";
+            increment2();
+            
+        },100)
+        	
+    }
+}
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause3(){
+    if(running == 0){
+        running = 1;
+        increment3();
+    document.getElementById("start3").innerHTML = "Stop";
+    document.getElementById("startPause3").style.backgroundColor = "red";   
+    document.getElementById("startPause3").style.borderColor = "red";
+    document.getElementById("timein3").innerHTML = getTimeStamp1();
+    }
+    else{
+        running = 0;
+    document.getElementById("start3").innerHTML = "Resume"; 
+    document.getElementById("startPause3").style.backgroundColor = "green"; 
+    document.getElementById("startPause3").style.borderColor = "green";
+    }
+}
+function getTimeStamp3() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset3(){
+    running = 0;
+    time = 0;
+    document.getElementById("start3").innerHTML = "Start";
+    document.getElementById("output3").innerHTML = "0:00:00:00";
+    document.getElementById("startPause3").style.backgroundColor = "green"; 
+    document.getElementById("startPause3").style.borderColor = "green";
+    document.getElementById("timein3").innerHTML = resetTimestamp3();
+}
+
+
+function resetTimestamp3() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment3(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output3").innerHTML = hours + " :" + mins + ":" + secs + ":" + tenths + "0";
+            increment3();
+            
+        },100)
+        	
+    }
+}
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause4(){
+    if(running == 0){
+        running = 1;
+        increment4();
+    document.getElementById("start4").innerHTML = "Stop";
+    document.getElementById("startPause4").style.backgroundColor = "red";   
+    document.getElementById("startPause4").style.borderColor = "red";
+    document.getElementById("timein4").innerHTML = getTimeStamp1();
+    }
+    else{
+        running = 0;
+    document.getElementById("start4").innerHTML = "Resume"; 
+    document.getElementById("startPause4").style.backgroundColor = "green"; 
+    document.getElementById("startPause4").style.borderColor = "green";
+    }
+}
+function getTimeStamp4() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset4(){
+    running = 0;
+    time = 0;
+    document.getElementById("start4").innerHTML = "Start";
+    document.getElementById("output4").innerHTML = "0:00:00:00";
+    document.getElementById("startPause4").style.backgroundColor = "green"; 
+    document.getElementById("startPause4").style.borderColor = "green";
+    document.getElementById("timein4").innerHTML = resetTimestamp4();
+}
+
+
+function resetTimestamp4() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment4(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output4").innerHTML = hours + " :" + mins + ":" + secs + ":" + tenths + "0";
+            increment4();
+            
+        },100)
+        	
+    }
+}
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause5(){
+    if(running == 0){
+        running = 1;
+        increment4();
+    document.getElementById("start5").innerHTML = "Stop";
+    document.getElementById("startPause5").style.backgroundColor = "red";   
+    document.getElementById("startPause5").style.borderColor = "red";
+    document.getElementById("timein5").innerHTML = getTimeStamp5();
+    }
+    else{
+        running = 0;
+    document.getElementById("start5").innerHTML = "Resume"; 
+    document.getElementById("startPause5").style.backgroundColor = "green"; 
+    document.getElementById("startPause5").style.borderColor = "green";
+    }
+}
+function getTimeStamp5() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset5(){
+    running = 0;
+    time = 0;
+    document.getElementById("start5").innerHTML = "Start";
+    document.getElementById("output5").innerHTML = "0:00:00:00";
+    document.getElementById("startPause5").style.backgroundColor = "green"; 
+    document.getElementById("startPause5").style.borderColor = "green";
+    document.getElementById("timein5").innerHTML = resetTimestamp5();
+}
+
+
+function resetTimestamp5() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment5(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output5").innerHTML = hours + " :" + mins + ":" + secs + ":" + tenths + "0";
+            increment5();
+            
+        },100)
+        	
+    }
+}
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause6(){
+    if(running == 0){
+        running = 1;
+        increment5();
+    document.getElementById("start6").innerHTML = "Stop";
+    document.getElementById("startPause6").style.backgroundColor = "red";   
+    document.getElementById("startPause6").style.borderColor = "red";
+    document.getElementById("timein6").innerHTML = getTimeStamp6();
+    }
+    else{
+        running = 0;
+    document.getElementById("start6").innerHTML = "Resume"; 
+    document.getElementById("startPause6").style.backgroundColor = "green"; 
+    document.getElementById("startPause6").style.borderColor = "green";
+    }
+}
+function getTimeStamp6() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset6(){
+    running = 0;
+    time = 0;
+    document.getElementById("start6").innerHTML = "Start";
+    document.getElementById("output6").innerHTML = "0:00:00:00";
+    document.getElementById("startPause6").style.backgroundColor = "green"; 
+    document.getElementById("startPause6").style.borderColor = "green";
+    document.getElementById("timein6").innerHTML = resetTimestamp6();
+}
+
+
+function resetTimestamp6() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment6(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output6").innerHTML = hours + " :" + mins + ":" + secs + ":" + tenths + "0";
+            increment6();
+            
+        },100)
+        	
+    }
+}
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause7(){
+    if(running == 0){
+        running = 1;
+        increment7();
+    document.getElementById("start7").innerHTML = "Stop";
+    document.getElementById("startPause7").style.backgroundColor = "red";   
+    document.getElementById("startPause7").style.borderColor = "red";
+    document.getElementById("timein7").innerHTML = getTimeStamp7();
+    }
+    else{
+        running = 0;
+    document.getElementById("start7").innerHTML = "Resume"; 
+    document.getElementById("startPause7").style.backgroundColor = "green"; 
+    document.getElementById("startPause7").style.borderColor = "green";
+    }
+}
+function getTimeStamp7() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset7(){
+    running = 0;
+    time = 0;
+    document.getElementById("start7").innerHTML = "Start";
+    document.getElementById("output7").innerHTML = "0:00:00:00";
+    document.getElementById("startPause7").style.backgroundColor = "green"; 
+    document.getElementById("startPause7").style.borderColor = "green";
+    document.getElementById("timein7").innerHTML = resetTimestamp7();
+}
+
+
+function resetTimestamp7() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment7(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output7").innerHTML = hours + " :" + mins + ":" + secs + ":" + tenths + "0";
+            increment7();
+            
+        },100)
+        	
+    }
+}
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause8(){
+    if(running == 0){
+        running = 1;
+        increment8();
+    document.getElementById("start8").innerHTML = "Stop";
+    document.getElementById("startPause8").style.backgroundColor = "red";   
+    document.getElementById("startPause8").style.borderColor = "red";
+    document.getElementById("timein8").innerHTML = getTimeStamp8();
+    }
+    else{
+        running = 0;
+    document.getElementById("start8").innerHTML = "Resume"; 
+    document.getElementById("startPause8").style.backgroundColor = "green"; 
+    document.getElementById("startPause8").style.borderColor = "green";
+    }
+}
+function getTimeStamp8() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset8(){
+    running = 0;
+    time = 0;
+    document.getElementById("start8").innerHTML = "Start";
+    document.getElementById("output8").innerHTML = "0:00:00:00";
+    document.getElementById("startPause8").style.backgroundColor = "green"; 
+    document.getElementById("startPause8").style.borderColor = "green";
+    document.getElementById("timein8").innerHTML = resetTimestamp8();
+}
+
+
+function resetTimestamp8() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment8(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output8").innerHTML = hours + " :" + mins + ":" + secs + ":" + tenths + "0";
+            increment8();
+            
+        },100)
+        	
+    }
+}
+</script>
+<script>
+    var time = 0;
+var running = 0;
+function startPause9(){
+    if(running == 0){
+        running = 1;
+        increment9();
+    document.getElementById("start9").innerHTML = "Stop";
+    document.getElementById("startPause9").style.backgroundColor = "red";   
+    document.getElementById("startPause9").style.borderColor = "red";
+    document.getElementById("timein9").innerHTML = getTimeStamp9();
+    }
+    else{
+        running = 0;
+    document.getElementById("start9").innerHTML = "Resume"; 
+    document.getElementById("startPause9").style.backgroundColor = "green"; 
+    document.getElementById("startPause9").style.borderColor = "green";
+    }
+}
+function getTimeStamp9() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+                     }
+function reset9(){
+    running = 0;
+    time = 0;
+    document.getElementById("start9").innerHTML = "Start";
+    document.getElementById("output9").innerHTML = "0:00:00:00";
+    document.getElementById("startPause9").style.backgroundColor = "green"; 
+    document.getElementById("startPause9").style.borderColor = "green";
+    document.getElementById("timein9").innerHTML = resetTimestamp9();
+}
+
+
+function resetTimestamp9() {
+	   var now = new Date();
+	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+function increment9(){
+    if(running == 1){
+        setTimeout(function(){
+            time++;
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var hours = Math.floor(time/10/60/60);
+            var tenths = time % 10;
+            if(mins < 10){
+                mins = "0" + mins;
+            }
+            if(secs < 10){
+                secs = "0" + secs;
+            }
+            document.getElementById("output9").innerHTML = hours + " :" + mins + ":" + secs + ":" + tenths + "0";
+            increment9();
+            
+        },100)
+        	
+    }
+}
+</script>
 </head>
 <body onload="opentab2(event, 'Reservation'), opentab1(event, 'Floorplan')";>
 <div id="container">
@@ -363,39 +999,98 @@ evt.currentTarget.className +=" active";
 	<p>here is a floor plan</p>
 	<body>
 </body>
-	<table><tr><td colspan="2">
-	<div class="dbltables" id="table1" onclick="startTimer()"><br/>Table1</div></td><td><div class="dbltables" id="table2" onclick="startTimer()"><br/>Table2</div><</td></tr>
-	<tr><td>
-	<div class="tables" id="table3" onclick="startTimer()"><br/>Table3</div></td><td><div class="tables" id="table4" onclick="startTimer()"><br/>Table4</div></td><td><div class="dbltables" id="table5" onclick="startTimer()"><br/>Table5</div></td>
-	</tr><tr><td>
-	<div class="tables" id="table6" onclick="startTimer()"><br/>Table6</div></td><td><div class="tables" id="table7" onclick="startTimer()"><br/>Table7</div></td><td><div class="dbltables" id="table8" onclick="startTimer()"><br/>Table8</div></td>
-	</tr><tr><td colspan="2">
-	<div class="dbltables" id="table9" onclick="startTimer()"><br/>Table9</div></td><td><div class="dbltables" id="table10" onclick="startTimer()"><br/>Table10</div></td></tr>
+	<table style="margin: 0 auto;" ><tr>
+	<td class="dbltables" id="table1"><br/>Table1
+<p id="output">0:00:00:00</p>
+<p id="timein"></p>
+<div id="controls" align="center">
+    <button id= "startPause" onclick="startPause()"><b id="start">Start</b></button>
+    <button onclick="reset()" id="reset"><b id="reset">Reset</b></button>
+</div>
+	</td>
+	<td class="dbltables" id="table1"><br/>Table2
+<p id="output1">0:00:00:00</p>
+<p id="timein1"></p>
+<div id="controls" align="center">
+    <button id= "startPause1" onclick="startPause1()"><b id="start1">Start</b></button>
+    <button onclick="reset1()" id="reset1"><b id="reset1">Reset</b></button>
+</div>
+	</td></tr>
+
+
+
+	<tr>
+	<td class="dbltables" id="table2"><br/>Table3
+<p id="output2">0:00:00:00</p>
+<p id="timein2"></p>
+<div id="controls" align="center">
+    <button id= "startPause2" onclick="startPause2()"><b id="start2">Start</b></button>
+    <button onclick="reset2()" id="reset2"><b id="reset2">Reset</b></button>
+</div>
+	</td>
+
+	<td class="dbltables" id="table1"><br/>Table4
+<p id="output3">0:00:00:00</p>
+<p id="timein3"></p>
+<div id="controls" align="center">
+    <button id= "startPause3" onclick="startPause3()"><b id="start3">Start</b></button>
+    <button onclick="reset3()" id="reset3"><b id="reset3">Reset</b></button>
+</div>
+	</td></tr>
+	<tr>
+	<td class="dbltables" id="table1"><br/>Table5
+<p id="output4">0:00:00:00</p>
+<p id="timein4"></p>
+<div id="controls" align="center">
+    <button id= "startPause4" onclick="startPause4()"><b id="start4">Start</b></button>
+    <button onclick="reset4()" id="reset4"><b id="reset4">Reset</b></button>
+</div>
+	</td>
+	<td class="dbltables" id="table1"><br/>Table6
+<p id="output5">0:00:00:00</p>
+<p id="timein5"></p>
+<div id="controls" align="center">
+    <button id= "startPause5" onclick="startPause5()"><b id="start5">Start</b></button>
+    <button onclick="reset5()" id="reset5"><b id="reset5">Reset</b></button>
+</div>
+	</td></tr>
+	<tr>
+	<td class="dbltables" id="table1"><br/>Table7
+<p id="output6">0:00:00:00</p>
+<p id="timein6"></p>
+<div id="controls" align="center">
+    <button id= "startPause6" onclick="startPause6()"><b id="start6">Start</b></button>
+    <button onclick="reset6()" id="reset6"><b id="reset6">Reset</b></button>
+</div>
+	</td>
+	<td class="dbltables" id="table1"><br/>Table8
+<p id="output7">0:00:00:00</p>
+<p id="timein7"></p>
+<div id="controls" align="center">
+    <button id= "startPause7" onclick="startPause7()"><b id="start7">Start</b></button>
+    <button onclick="reset7()" id="reset7"><b id="reset7">Reset</b></button>
+</div>
+	</td></tr>
+	<tr>
+	<td class="dbltables" id="table1"><br/>Table9
+<p id="output8">0:00:00:00</p>
+<p id="timein8"></p>
+<div id="controls" align="center">
+    <button id= "startPause8" onclick="startPause8()"><b id="start8">Start</b></button>
+    <button onclick="reset8()" id="reset8"><b id="reset8">Reset</b></button>
+</div>
+	</td>
+	<td class="dbltables" id="table1"><br/>Table10
+<p id="output9">0:00:00:00</p>
+<p id="timein9"></p>
+<div id="controls" align="center">
+    <button id= "startPause9" onclick="startPause9()"><b id="start9">Start</b></button>
+    <button onclick="reset9()" id="reset9"><b id="reset9">Reset</b></button>
+</div>
+	</td></tr>
+
 </table>
-<script type="text/javascript">
-	function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
-
-window.onclick=function () {
-    var sixtyMinutes = 60 * 60,
-        display = document.querySelector('#table1');
-    startTimer(sixtyMinutes, display);
-};
-</script>
 
 </div>
 <div id="Tips" class="tabcontent1">
@@ -559,6 +1254,18 @@ document.getElementById('total').value=totalamt;
                             <option value="19"> 2019</option>
                             <option value="20"> 2020</option>
                             <option value="21"> 2021</option>
+                            <option value="21"> 2022</option>
+                            <option value="21"> 2023</option>
+                            <option value="21"> 2024</option>
+                            <option value="21"> 2025</option>
+                            <option value="21"> 2026</option>
+                            <option value="21"> 2027</option>
+                            <option value="21"> 2028</option>
+                            <option value="21"> 2029</option>
+                            <option value="21"> 2030</option>
+                            <option value="21"> 2031</option>
+                            <option value="21"> 2031</option>
+
                         </select></td>
                     </tr>
 
@@ -588,21 +1295,37 @@ document.getElementById('total').value=totalamt;
 
 	</div>
 	<div class="rl">
-<button class="tablinks2" id="reservation" onclick="opentab2(event, 'Reservation'), opentab1(event, 'Floorplan')">Reservation</button>
 
-<button class="tablinks2" onclick="opentab2(event, 'Takeout') ,  opentab1(event, 'Tips');" id='takeout'>Take Out
-</button>
+<button class="tablinks2" id="reservation" onclick="opentab2(event, 'Reservation'), opentab1(event, 'Floorplan');">Reservation</button>
+<button class="tablinks2"  onclick="opentab2(event, 'Takeout') ,  opentab1(event, 'Tips'), popup();" id='takeout'>Take Out</button>
 <button class="tablinks2" onclick="opentab2(event, 'Salesreport')">Sales Report</button>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script>
+
+	
+	setTimeout (function popup() {
+		/*if(document.getElementById("Reservation").style.display == "none")*/
+		//if( $('.small').is(':visible') ){
+        //alert("20 items were loaded");
+        var rowIndex = 0; // rowindex, in this case the first row  table
+		var table = document.getElementById('big'); // table to perform search on
+		var cells = table.getElementsByTagName('td');
+		var cellCount = cells.length;
+		alert(cellCount + " " + "items were loaded"); 
+	},3000);
+
+
+
+</script>
 <div id="Reservation" class="tabcontent2">
   <style>
-  table{}
+ 
   td {
   text-align: center;
   padding: 10px;
      margin: 20px;
      width:100px;
    }
-
   </style>
 <div class="reservbox">
 <form>
@@ -673,59 +1396,60 @@ document.getElementById('total').value=totalamt;
 
 
 <div id="Takeout" class="tabcontent2">
-	<table class="big">
+	<table id="big">
 	<tr>
 		<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">California roll</td><td class="item_price">$3.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/samnar2017/samnar2017.github.io/blob/master/anago.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">California roll</p><p class="item_price">$3.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/samnar2017/samnar2017.github.io/blob/master/anago.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 
 <div id="purhcaseForm">
 	 <form id="purchase">
 		 
-		 <input class="btn_total" type='button' name='subtract' onclick='item_total1("qty1",-1,"i_total1",3.99);' value='-'>
+		 <input class="btn_total" type='button' name='subtract' onclick='item_total1("qty1",-1,"i_total1",7.99);' value='-'>
 		 <input class="item_total" type='text' name='qty' id='qty1' readonly=true value="0">
-		 <input class="btn_total" type='button' name='add' onclick='item_total1("qty1",1,"i_total1",3.99);' value='+'/>
+		 <input class="btn_total" type='button' name='add' onclick='item_total1("qty1",1,"i_total1",7.99);' value='+'/>
 		 
 		 <input class="item_total" type='text' name='i_total' id='i_total1' value="0" />
       </form>
 </div>
-</td>
-			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+		</td>
+	</tr>
+	
+	<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 	<!--second item-->
 		<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Hirame Fluke</td><td class="item_price">$7.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/fluke.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Hirame Fluke</p><p class="item_price">$7.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/fluke.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
-<div id="purhcaseForm">
-	 <form id="purchase">
+		<div id="purhcaseForm">
+	 	<form id="purchase">
 		 <input class="btn_total" type='button' name='subtract' onclick='item_total2("qty2",-1,"i_total2",7.99);' value='-'>
 		 <input class="item_total" type='text' name='qty' id='qty2' readonly=true value="0">
 		 <input class="btn_total" type='button' name='add' onclick='item_total2("qty2",1,"i_total2",7.99);' value='+'/>
 		 
 		 <input class="item_total" type='text' name='i_total' id='i_total2' value="0" />
       </form>
-</div>
-</td>
+			</div>
+			</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
-			</td>
+		</td>
 		<!--third item-->
 		<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Maguro Tuna</td><td class="item_price">$7.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/tuna.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Maguro Tuna</p><p class="item_price">$7.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/tuna.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -738,9 +1462,9 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total3' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 </tr>
@@ -749,9 +1473,9 @@ document.getElementById('total').value=totalamt;
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Masu Trout</td><td class="item_price">$8.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/seaTrout.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Masu Trout</p><p class="item_price">$8.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/seaTrout.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -764,18 +1488,18 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total4' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
-			</td>
+</td>
 <!--fifth item-->
 
-				<td>
+<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Kani Crab</td><td class="item_price">$8.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/crab.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Kani Crab</p><p class="item_price">$8.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/crab.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -788,18 +1512,18 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total5' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 <!--sixth item-->
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Anago Eel</td><td class="item_price">$8.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/anago.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Anago Eel</p><p class="item_price">$8.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/anago.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -812,9 +1536,9 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total6' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 		</tr>
@@ -823,9 +1547,9 @@ document.getElementById('total').value=totalamt;
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Sake Salmon</td><td class="item_price">$8.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/salmonSushi.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Sake Salmon</p><p class="item_price">$8.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/salmonSushi.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -838,18 +1562,18 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total7' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 	<!--eighth item-->
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Smoked Sake</td><td class="item_price">$10.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/smokedHamachi.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Smoked Sake</p><p class="item_price">$10.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/smokedHamachi.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -862,18 +1586,18 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total8' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 <!--ninth item-->
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Hotate Scallop</td><td class="item_price">$10.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/scallop.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Hotate Scallop</p><p class="item_price">$10.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/scallop.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -886,9 +1610,9 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total9' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 </tr>
@@ -897,9 +1621,9 @@ document.getElementById('total').value=totalamt;
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Hamachi Yellowtail</td><td class="item_price">$10.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/smokedHamachi.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Hamachi Yellowtail</p><p class="item_price">$10.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/smokedHamachi.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -912,18 +1636,18 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total10' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 <!--eleventh item-->
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Unagi Eel</td><td class="item_price">$10.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/uni.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Unagi Eel</p><p class="item_price">$10.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/uni.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -938,16 +1662,16 @@ document.getElementById('total').value=totalamt;
 </div>
 </td>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 <!--twelth item-->
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Kanpachi Amberjack</td><td class="item_price">$12.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/kanpachi.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Kanpachi Amberjack</p><p class="item_price">$12.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/kanpachi.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -960,9 +1684,9 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total12' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 </tr>
@@ -971,9 +1695,9 @@ document.getElementById('total').value=totalamt;
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Botan Ebi</td><td class="item_price">$12.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/shrimp.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Botan Ebi</p><p class="item_price">$12.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/shrimp.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -986,18 +1710,18 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total13' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 <!--14th item-->
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Ese Ebi</td><td class="item_price">$14.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/lobster.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Ese Ebi</p><p class="item_price">$14.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/lobster.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -1010,18 +1734,18 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total14' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 <!--15th item-->
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Karai Ebi</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/spicyLobster.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Karai Ebi</p><p class="item_price">$15.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/spicyLobster.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -1034,9 +1758,9 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total15' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 			</tr>
@@ -1045,9 +1769,9 @@ document.getElementById('total').value=totalamt;
 <tr>
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Toro Tuna</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/toro.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Toro Tuna</p><p class="item_price">$15.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/toro.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -1060,18 +1784,18 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total16' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 <!--17th item-->
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Taco Octopus</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/octopus.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Taco Octopus</p><p class="item_price">$15.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/octopus.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -1084,9 +1808,9 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total17' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 			
@@ -1094,9 +1818,9 @@ document.getElementById('total').value=totalamt;
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Tamago Egg</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/egg.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Tamago Egg</p><p class="item_price">$15.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/egg.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -1109,9 +1833,9 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total18' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 			</tr>
@@ -1119,9 +1843,9 @@ document.getElementById('total').value=totalamt;
 
 				<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Binnaga Albacore</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/albacore.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Binnaga Albacore</p><p class="item_price">$15.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/albacore.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -1134,18 +1858,18 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total19' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 <!--20th item-->
 
-				<td>
+			<td>
 			<table class="small">
-			<tr class="item_top"><td rowspan="2" class="item_name">Hedai Porgy</td><td class="item_price">$15.99</td></tr><tr><td></td></tr>
-			<tr><td colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/bronzini.jpg?raw=true"></td></tr>
-			<tr class="item_buttom"><td colspan="2">
+			<tr class="item_top"><p rowspan="2" class="item_name">Hedai Porgy</p><p class="item_price">$15.99</p></tr><tr><p></p></tr>
+			<tr><p colspan="2"><img class="items" src="https://github.com/sabiradavletshina/sushi_diner/blob/master/pic/bronzini.jpg?raw=true"></p></tr>
+			<tr class="item_buttom"><p colspan="2">
 
 
 <div id="purhcaseForm">
@@ -1158,14 +1882,15 @@ document.getElementById('total').value=totalamt;
 		 <input class="item_total" type='text' name='i_total' id='i_total20' value="0" />
       </form>
 </div>
-</td>
+</p>
 			</tr>
-			<tr><td colspan="2"><button id="add" onclick="agregator()">add</button></td></tr>
+			<tr><p colspan="2"><button id="add" onclick="agregator()">add</button></p></tr>
 			</table>
 			</td>
 			</tr>
+</table>
+</div>
 
-	
 <!--<br>
 <button onClick="someFunc()">calculate</button>
 <br>
