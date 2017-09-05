@@ -1303,7 +1303,7 @@ document.getElementById('total').value=totalamt;
 <script>
 
 	
-	setTimeout (function popup() {
+	function popup() {
 		/*if(document.getElementById("Reservation").style.display == "none")*/
 		//if( $('.small').is(':visible') ){
         //alert("20 items were loaded");
@@ -1312,7 +1312,7 @@ document.getElementById('total').value=totalamt;
 		var cells = table.getElementsByTagName('td');
 		var cellCount = cells.length;
 		alert(cellCount + " " + "items were loaded"); 
-	},3000);
+	}
 
 
 
