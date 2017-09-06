@@ -309,10 +309,8 @@ margin: 10px;
 }
 .small{
 	border: 1px solid #c1b9aa;
-
-
 }
-
+.payment span, ul, li {float: center; width: auto;}
 
 </style>
 
@@ -987,6 +985,7 @@ function increment9(){
     }
 }
 </script>
+
 </head>
 <body onload="opentab2(event, 'Reservation'), opentab1(event, 'Floorplan')";>
 <div id="container">
@@ -1219,21 +1218,22 @@ document.getElementById('total').value=totalamt;
 <table class="payment">
 
                 <form>
-                    <tr>
-                        <td><label >Owner</label></td>
-                        <td><input type="text" class="form-control" id="owner"></td>
-                    </tr>
-                    <tr>
-                        <td><label>CVV</label></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr >
-                        <td><label>Card Number</label></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr >
-                        <td><label>Expiration Date</label></td>
-                        <td><select>
+                <ul>
+                    <span class="form-group owner">
+                        <li><label for="owner">Owner</label>
+                        <input type="text" class="form-control" id="owner"></li>
+                    </span>
+                    <span class="form-group CVV">
+                        <li><label for="cvv">..CVV</label>
+                        <input type="text" class="form-control" id="cvv"></li>
+                    </span>
+                    <span class="form-group" id="card-number-field">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber">
+                    </span>
+                    <span class="form-group" id="expiration-date">
+                        <label>Expiration Date</label>
+                        <select>
                             <option value="01">January</option>
                             <option value="02">February </option>
                             <option value="03">March</option>
@@ -1246,8 +1246,8 @@ document.getElementById('total').value=totalamt;
                             <option value="10">October</option>
                             <option value="11">November</option>
                             <option value="12">December</option>
-                        </select></td>
-                        <td><select>
+                        </select>
+                        <select>
                             <option value="16"> 2016</option>
                             <option value="17"> 2017</option>
                             <option value="18"> 2018</option>
@@ -1263,11 +1263,9 @@ document.getElementById('total').value=totalamt;
                             <option value="21"> 2028</option>
                             <option value="21"> 2029</option>
                             <option value="21"> 2030</option>
-                            <option value="21"> 2031</option>
-                            <option value="21"> 2031</option>
 
-                        </select></td>
-                    </tr>
+                        </select>
+                    </span>
 
                     <div class="form-group" id="credit_cards">
                         <img src="https://raw.githubusercontent.com/samnar2017/samnar2017.github.io/master/folder/visa.jpg" id="visa">
@@ -1275,7 +1273,7 @@ document.getElementById('total').value=totalamt;
                         <img src="https://raw.githubusercontent.com/samnar2017/samnar2017.github.io/master/folder/amex.jpg" id="amex">
 
                     </div>
-                    
+                </ul>    
                 </form>
                 
             </div>  
@@ -2087,7 +2085,10 @@ function agregator(){
 }
 
   </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="jquery.payform.min.js" charset="utf-8"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
