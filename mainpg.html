@@ -5,15 +5,19 @@
 	<style type="text/css">
 
 body{
-	background-image: url(https://samuraidiner.000webhostapp.com/1.jpg);
+	background-image: url(https://raw.githubusercontent.com/samnar2017/samnar2017.github.io/master/folder/1.png);
 	background-size: cover;
 }
 .rl{
   text-align: center;
-  border: 1px solid #F29E20;
+  border: 3px solid #F29E20;
   border-radius: 35px;
   float:left; 
-  width:49%; height: 120vh;}
+  width:39%; height: 120vh;
+  margin-left:5%;
+  margin-right:5%;
+  overflow:auto;
+}
 
 .tablinks1, .tablinks2 {
 	
@@ -119,12 +123,12 @@ margin-bottom: 20px;
 .dbltables {
 	width: 200px;
 	height: 100px;
-	border: 1px solid #F29E20;
+	border: 3px solid #F29E20;
 	-moz-border-radius: 100px / 50px;
 	-webkit-border-radius: 100px / 50px;
 	border-radius: 100px / 50px;
 	font-size: 16pt;
-	color: white;
+	color: grey;
 }
 }
 #calculate{width: 20%;
@@ -283,10 +287,10 @@ border:none;}
     position: relative;
 }
 .reservbox{ text-align: center;
-  border: 1px solid #c1b9aa;
+  border: 3px solid #F29E20;
   width: 50%;
   height: 60%;
-color: white;
+color: black;
 border-radius: 25px;
 margin: auto;}
 .reservp {font-size: 16pt;
@@ -410,11 +414,11 @@ function increment(){
 }
 </script>
 <script>
-    var time = 0;
-var running = 0;
+    var time1 = 0;
+var running1 = 0;
 function startPause1(){
-    if(running == 0){
-        running = 1;
+    if(running1 == 0){
+        running1 = 1;
         increment1();
     document.getElementById("start1").innerHTML = "Stop";
     document.getElementById("startPause1").style.backgroundColor = "red";   
@@ -422,21 +426,21 @@ function startPause1(){
     document.getElementById("timein1").innerHTML = getTimeStamp1();
     }
     else{
-        running = 0;
+        running1 = 0;
     document.getElementById("start1").innerHTML = "Resume"; 
     document.getElementById("startPause1").style.backgroundColor = "green"; 
     document.getElementById("startPause1").style.borderColor = "green";
     }
 }
 function getTimeStamp1() {
-       var now = new Date();
-       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+       var now1 = new Date();
+       return ((now1.getMonth() + 1) + '/' + (now1.getDate()) + '/' + now1.getFullYear() + " " + now1.getHours() + ':'
+                     + ((now1.getMinutes() < 10) ? ("0" + now1.getMinutes()) : (now1.getMinutes())) + ':' + ((now1.getSeconds() < 10) ? ("0" + now1
+                     .getSeconds()) : (now1.getSeconds())));
                      }
 function reset1(){
-    running = 0;
-    time = 0;
+    running1 = 0;
+    time1 = 0;
     document.getElementById("start1").innerHTML = "Start";
     document.getElementById("output1").innerHTML = "0:00:00:00";
     document.getElementById("startPause1").style.backgroundColor = "green"; 
@@ -446,13 +450,13 @@ function reset1(){
 
 
 function resetTimestamp1() {
-	   var now = new Date();
-	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+	   var now1 = new Date();
+	   return ((now1.getMonth() + 1) + '/' + (now1.getDate()) + '/' + now.getFullYear() + " " + now1.getHours() + ':'
+                     + ((now1.getMinutes() < 10) ? ("0" + now1.getMinutes()) : (now1.getMinutes())) + ':' + ((now1.getSeconds() < 10) ? ("0" + now1
+                     .getSeconds()) : (now1.getSeconds())));
 }
 function increment1(){
-    if(running == 1){
+    if(running1 == 1){
         setTimeout(function(){
             time++;
             var mins = Math.floor(time/10/60);
@@ -474,11 +478,11 @@ function increment1(){
 }
 </script>
 <script>
-    var time = 0;
-var running = 0;
+    var time2 = 0;
+var running2 = 0;
 function startPause2(){
-    if(running == 0){
-        running = 1;
+    if(running2 == 0){
+        running2 = 1;
         increment2();
     document.getElementById("start2").innerHTML = "Stop";
     document.getElementById("startPause2").style.backgroundColor = "red";   
@@ -486,21 +490,21 @@ function startPause2(){
     document.getElementById("timein2").innerHTML = getTimeStamp1();
     }
     else{
-        running = 0;
+        running2 = 0;
     document.getElementById("start2").innerHTML = "Resume"; 
     document.getElementById("startPause2").style.backgroundColor = "green"; 
     document.getElementById("startPause2").style.borderColor = "green";
     }
 }
 function getTimeStamp2() {
-       var now = new Date();
-       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+       var now2 = new Date();
+       return ((now2.getMonth() + 1) + '/' + (now2.getDate()) + '/' + now2.getFullYear() + " " + now2.getHours() + ':'
+                     + ((now2.getMinutes() < 10) ? ("0" + now2.getMinutes()) : (now2.getMinutes())) + ':' + ((now2.getSeconds() < 10) ? ("0" + now2
+                     .getSeconds()) : (now2.getSeconds())));
                      }
 function reset2(){
-    running = 0;
-    time = 0;
+    running2 = 0;
+    time2 = 0;
     document.getElementById("start2").innerHTML = "Start";
     document.getElementById("output2").innerHTML = "0:00:00:00";
     document.getElementById("startPause2").style.backgroundColor = "green"; 
@@ -510,13 +514,13 @@ function reset2(){
 
 
 function resetTimestamp2() {
-	   var now = new Date();
-	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+	   var now2 = new Date();
+	   return ((now2.getMonth() + 1) + '/' + (now2.getDate()) + '/' + now2.getFullYear() + " " + now2.getHours() + ':'
+                     + ((now2.getMinutes() < 10) ? ("0" + now2.getMinutes()) : (now2.getMinutes())) + ':' + ((now2.getSeconds() < 10) ? ("0" + now2
+                     .getSeconds()) : (now2.getSeconds())));
 }
 function increment2(){
-    if(running == 1){
+    if(running2 == 1){
         setTimeout(function(){
             time++;
             var mins = Math.floor(time/10/60);
@@ -538,11 +542,11 @@ function increment2(){
 }
 </script>
 <script>
-    var time = 0;
-var running = 0;
+    var time3 = 0;
+var running3 = 0;
 function startPause3(){
-    if(running == 0){
-        running = 1;
+    if(running3 == 0){
+        running3 = 1;
         increment3();
     document.getElementById("start3").innerHTML = "Stop";
     document.getElementById("startPause3").style.backgroundColor = "red";   
@@ -550,21 +554,21 @@ function startPause3(){
     document.getElementById("timein3").innerHTML = getTimeStamp1();
     }
     else{
-        running = 0;
+        running3 = 0;
     document.getElementById("start3").innerHTML = "Resume"; 
     document.getElementById("startPause3").style.backgroundColor = "green"; 
     document.getElementById("startPause3").style.borderColor = "green";
     }
 }
 function getTimeStamp3() {
-       var now = new Date();
-       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+       var now3 = new Date();
+       return ((now3.getMonth() + 1) + '/' + (now3.getDate()) + '/' + now3.getFullYear() + " " + now3.getHours() + ':'
+                     + ((now3.getMinutes() < 10) ? ("0" + now3.getMinutes()) : (now3.getMinutes())) + ':' + ((now3.getSeconds() < 10) ? ("0" + now3
+                     .getSeconds()) : (now3.getSeconds())));
                      }
 function reset3(){
-    running = 0;
-    time = 0;
+    running3 = 0;
+    time3 = 0;
     document.getElementById("start3").innerHTML = "Start";
     document.getElementById("output3").innerHTML = "0:00:00:00";
     document.getElementById("startPause3").style.backgroundColor = "green"; 
@@ -574,13 +578,13 @@ function reset3(){
 
 
 function resetTimestamp3() {
-	   var now = new Date();
-	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+	   var now3 = new Date();
+	   return ((now3.getMonth() + 1) + '/' + (now3.getDate()) + '/' + now3.getFullYear() + " " + now3.getHours() + ':'
+                     + ((now3.getMinutes() < 10) ? ("0" + now3.getMinutes()) : (now3.getMinutes())) + ':' + ((now3.getSeconds() < 10) ? ("0" + now3
+                     .getSeconds()) : (now3.getSeconds())));
 }
 function increment3(){
-    if(running == 1){
+    if(running3 == 1){
         setTimeout(function(){
             time++;
             var mins = Math.floor(time/10/60);
@@ -602,11 +606,11 @@ function increment3(){
 }
 </script>
 <script>
-    var time = 0;
-var running = 0;
+    var time4 = 0;
+var running4 = 0;
 function startPause4(){
-    if(running == 0){
-        running = 1;
+    if(running4 == 0){
+        running4 = 1;
         increment4();
     document.getElementById("start4").innerHTML = "Stop";
     document.getElementById("startPause4").style.backgroundColor = "red";   
@@ -614,21 +618,21 @@ function startPause4(){
     document.getElementById("timein4").innerHTML = getTimeStamp1();
     }
     else{
-        running = 0;
+        running4 = 0;
     document.getElementById("start4").innerHTML = "Resume"; 
     document.getElementById("startPause4").style.backgroundColor = "green"; 
     document.getElementById("startPause4").style.borderColor = "green";
     }
 }
 function getTimeStamp4() {
-       var now = new Date();
-       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+       var now4 = new Date();
+       return ((now4.getMonth() + 1) + '/' + (now4.getDate()) + '/' + now4.getFullYear() + " " + now4.getHours() + ':'
+                     + ((now4.getMinutes() < 10) ? ("0" + now4.getMinutes()) : (now4.getMinutes())) + ':' + ((now4.getSeconds() < 10) ? ("0" + now4
+                     .getSeconds()) : (now4.getSeconds())));
                      }
 function reset4(){
-    running = 0;
-    time = 0;
+    running4 = 0;
+    time4 = 0;
     document.getElementById("start4").innerHTML = "Start";
     document.getElementById("output4").innerHTML = "0:00:00:00";
     document.getElementById("startPause4").style.backgroundColor = "green"; 
@@ -638,13 +642,13 @@ function reset4(){
 
 
 function resetTimestamp4() {
-	   var now = new Date();
-	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+	   var now4 = new Date();
+	   return ((now4.getMonth() + 1) + '/' + (now4.getDate()) + '/' + now4.getFullYear() + " " + now4.getHours() + ':'
+                     + ((now4.getMinutes() < 10) ? ("0" + now4.getMinutes()) : (now4.getMinutes())) + ':' + ((now4.getSeconds() < 10) ? ("0" + now4
+                     .getSeconds()) : (now4.getSeconds())));
 }
 function increment4(){
-    if(running == 1){
+    if(running4 == 1){
         setTimeout(function(){
             time++;
             var mins = Math.floor(time/10/60);
@@ -666,33 +670,33 @@ function increment4(){
 }
 </script>
 <script>
-    var time = 0;
-var running = 0;
+    var time5 = 0;
+var running5 = 0;
 function startPause5(){
-    if(running == 0){
-        running = 1;
-        increment4();
+    if(running5 == 0){
+        running5 = 1;
+        increment5();
     document.getElementById("start5").innerHTML = "Stop";
     document.getElementById("startPause5").style.backgroundColor = "red";   
     document.getElementById("startPause5").style.borderColor = "red";
     document.getElementById("timein5").innerHTML = getTimeStamp5();
     }
     else{
-        running = 0;
+        running5 = 0;
     document.getElementById("start5").innerHTML = "Resume"; 
     document.getElementById("startPause5").style.backgroundColor = "green"; 
     document.getElementById("startPause5").style.borderColor = "green";
     }
 }
 function getTimeStamp5() {
-       var now = new Date();
-       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+       var now5 = new Date();
+       return ((now5.getMonth() + 1) + '/' + (now5.getDate()) + '/' + now5.getFullYear() + " " + now5.getHours() + ':'
+                     + ((now5.getMinutes() < 10) ? ("0" + now5.getMinutes()) : (now5.getMinutes())) + ':' + ((now5.getSeconds() < 10) ? ("0" + now5
+                     .getSeconds()) : (now5.getSeconds())));
                      }
 function reset5(){
-    running = 0;
-    time = 0;
+    running5 = 0;
+    time5 = 0;
     document.getElementById("start5").innerHTML = "Start";
     document.getElementById("output5").innerHTML = "0:00:00:00";
     document.getElementById("startPause5").style.backgroundColor = "green"; 
@@ -702,13 +706,13 @@ function reset5(){
 
 
 function resetTimestamp5() {
-	   var now = new Date();
-	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+	   var now5 = new Date();
+	   return ((now5.getMonth() + 1) + '/' + (now5.getDate()) + '/' + now5.getFullYear() + " " + now5.getHours() + ':'
+                     + ((now5.getMinutes() < 10) ? ("0" + now5.getMinutes()) : (now5.getMinutes())) + ':' + ((now5.getSeconds() < 10) ? ("0" + now5
+                     .getSeconds()) : (now5.getSeconds())));
 }
 function increment5(){
-    if(running == 1){
+    if(running5 == 1){
         setTimeout(function(){
             time++;
             var mins = Math.floor(time/10/60);
@@ -730,33 +734,33 @@ function increment5(){
 }
 </script>
 <script>
-    var time = 0;
-var running = 0;
+    var time6 = 0;
+var running6 = 0;
 function startPause6(){
-    if(running == 0){
-        running = 1;
-        increment5();
+    if(running6 == 0){
+        running6 = 1;
+        increment6();
     document.getElementById("start6").innerHTML = "Stop";
     document.getElementById("startPause6").style.backgroundColor = "red";   
     document.getElementById("startPause6").style.borderColor = "red";
-    document.getElementById("timein6").innerHTML = getTimeStamp6();
+    document.getElementById("timein6").innerHTML = getTimeStamp7();
     }
     else{
-        running = 0;
+        running6 = 0;
     document.getElementById("start6").innerHTML = "Resume"; 
     document.getElementById("startPause6").style.backgroundColor = "green"; 
     document.getElementById("startPause6").style.borderColor = "green";
     }
 }
 function getTimeStamp6() {
-       var now = new Date();
-       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+       var now6 = new Date();
+       return ((now6.getMonth() + 1) + '/' + (now6.getDate()) + '/' + now6.getFullYear() + " " + now6.getHours() + ':'
+                     + ((now6.getMinutes() < 10) ? ("0" + now6.getMinutes()) : (now6.getMinutes())) + ':' + ((now6.getSeconds() < 10) ? ("0" + now6
+                     .getSeconds()) : (now6.getSeconds())));
                      }
 function reset6(){
-    running = 0;
-    time = 0;
+    running6 = 0;
+    time6 = 0;
     document.getElementById("start6").innerHTML = "Start";
     document.getElementById("output6").innerHTML = "0:00:00:00";
     document.getElementById("startPause6").style.backgroundColor = "green"; 
@@ -766,13 +770,13 @@ function reset6(){
 
 
 function resetTimestamp6() {
-	   var now = new Date();
-	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+     var now6 = new Date();
+     return ((now6.getMonth() + 1) + '/' + (now6.getDate()) + '/' + now6.getFullYear() + " " + now6.getHours() + ':'
+                     + ((now6.getMinutes() < 10) ? ("0" + now6.getMinutes()) : (now6.getMinutes())) + ':' + ((now6.getSeconds() < 10) ? ("0" + now6
+                     .getSeconds()) : (now6.getSeconds())));
 }
 function increment6(){
-    if(running == 1){
+    if(running6 == 1){
         setTimeout(function(){
             time++;
             var mins = Math.floor(time/10/60);
@@ -789,16 +793,16 @@ function increment6(){
             increment6();
             
         },100)
-        	
+          
     }
 }
 </script>
 <script>
-    var time = 0;
-var running = 0;
+    var time7 = 0;
+var running7 = 0;
 function startPause7(){
-    if(running == 0){
-        running = 1;
+    if(running7 == 0){
+        running7 = 1;
         increment7();
     document.getElementById("start7").innerHTML = "Stop";
     document.getElementById("startPause7").style.backgroundColor = "red";   
@@ -806,21 +810,21 @@ function startPause7(){
     document.getElementById("timein7").innerHTML = getTimeStamp7();
     }
     else{
-        running = 0;
+        running7 = 0;
     document.getElementById("start7").innerHTML = "Resume"; 
     document.getElementById("startPause7").style.backgroundColor = "green"; 
     document.getElementById("startPause7").style.borderColor = "green";
     }
 }
 function getTimeStamp7() {
-       var now = new Date();
-       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+       var now7 = new Date();
+       return ((now7.getMonth() + 1) + '/' + (now7.getDate()) + '/' + now7.getFullYear() + " " + now7.getHours() + ':'
+                     + ((now7.getMinutes() < 10) ? ("0" + now7.getMinutes()) : (now7.getMinutes())) + ':' + ((now7.getSeconds() < 10) ? ("0" + now7
+                     .getSeconds()) : (now7.getSeconds())));
                      }
 function reset7(){
-    running = 0;
-    time = 0;
+    running7 = 0;
+    time7 = 0;
     document.getElementById("start7").innerHTML = "Start";
     document.getElementById("output7").innerHTML = "0:00:00:00";
     document.getElementById("startPause7").style.backgroundColor = "green"; 
@@ -830,13 +834,13 @@ function reset7(){
 
 
 function resetTimestamp7() {
-	   var now = new Date();
-	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+	   var now7 = new Date();
+	   return ((now7.getMonth() + 1) + '/' + (now7.getDate()) + '/' + now7.getFullYear() + " " + now7.getHours() + ':'
+                     + ((now7.getMinutes() < 10) ? ("0" + now7.getMinutes()) : (now7.getMinutes())) + ':' + ((now7.getSeconds() < 10) ? ("0" + now7
+                     .getSeconds()) : (now7.getSeconds())));
 }
 function increment7(){
-    if(running == 1){
+    if(running7 == 1){
         setTimeout(function(){
             time++;
             var mins = Math.floor(time/10/60);
@@ -858,11 +862,11 @@ function increment7(){
 }
 </script>
 <script>
-    var time = 0;
-var running = 0;
+    var time8 = 0;
+var running8 = 0;
 function startPause8(){
-    if(running == 0){
-        running = 1;
+    if(running8 == 0){
+        running8 = 1;
         increment8();
     document.getElementById("start8").innerHTML = "Stop";
     document.getElementById("startPause8").style.backgroundColor = "red";   
@@ -870,21 +874,21 @@ function startPause8(){
     document.getElementById("timein8").innerHTML = getTimeStamp8();
     }
     else{
-        running = 0;
+        running8 = 0;
     document.getElementById("start8").innerHTML = "Resume"; 
     document.getElementById("startPause8").style.backgroundColor = "green"; 
     document.getElementById("startPause8").style.borderColor = "green";
     }
 }
 function getTimeStamp8() {
-       var now = new Date();
-       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+       var now8 = new Date();
+       return ((now8.getMonth() + 1) + '/' + (now8.getDate()) + '/' + now8.getFullYear() + " " + now8.getHours() + ':'
+                     + ((now8.getMinutes() < 10) ? ("0" + now8.getMinutes()) : (now8.getMinutes())) + ':' + ((now8.getSeconds() < 10) ? ("0" + now8
+                     .getSeconds()) : (now8.getSeconds())));
                      }
 function reset8(){
-    running = 0;
-    time = 0;
+    running8 = 0;
+    time8 = 0;
     document.getElementById("start8").innerHTML = "Start";
     document.getElementById("output8").innerHTML = "0:00:00:00";
     document.getElementById("startPause8").style.backgroundColor = "green"; 
@@ -894,13 +898,13 @@ function reset8(){
 
 
 function resetTimestamp8() {
-	   var now = new Date();
-	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+	   var now8 = new Date();
+	   return ((now8.getMonth() + 1) + '/' + (now8.getDate()) + '/' + now8.getFullYear() + " " + now8.getHours() + ':'
+                     + ((now8.getMinutes() < 10) ? ("0" + now8.getMinutes()) : (now8.getMinutes())) + ':' + ((now8.getSeconds() < 10) ? ("0" + now8
+                     .getSeconds()) : (now8.getSeconds())));
 }
 function increment8(){
-    if(running == 1){
+    if(running8 == 1){
         setTimeout(function(){
             time++;
             var mins = Math.floor(time/10/60);
@@ -922,11 +926,11 @@ function increment8(){
 }
 </script>
 <script>
-    var time = 0;
-var running = 0;
+    var time9 = 0;
+var running9 = 0;
 function startPause9(){
-    if(running == 0){
-        running = 1;
+    if(running9 == 0){
+        running9 = 1;
         increment9();
     document.getElementById("start9").innerHTML = "Stop";
     document.getElementById("startPause9").style.backgroundColor = "red";   
@@ -934,21 +938,21 @@ function startPause9(){
     document.getElementById("timein9").innerHTML = getTimeStamp9();
     }
     else{
-        running = 0;
+        running9 = 0;
     document.getElementById("start9").innerHTML = "Resume"; 
     document.getElementById("startPause9").style.backgroundColor = "green"; 
     document.getElementById("startPause9").style.borderColor = "green";
     }
 }
 function getTimeStamp9() {
-       var now = new Date();
-       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+       var now9 = new Date();
+       return ((now9.getMonth() + 1) + '/' + (now9.getDate()) + '/' + now9.getFullYear() + " " + now9.getHours() + ':'
+                     + ((now9.getMinutes() < 10) ? ("0" + now9.getMinutes()) : (now9.getMinutes())) + ':' + ((now9.getSeconds() < 10) ? ("0" + now9
+                     .getSeconds()) : (now9.getSeconds())));
                      }
 function reset9(){
-    running = 0;
-    time = 0;
+    running9 = 0;
+    time9 = 0;
     document.getElementById("start9").innerHTML = "Start";
     document.getElementById("output9").innerHTML = "0:00:00:00";
     document.getElementById("startPause9").style.backgroundColor = "green"; 
@@ -958,13 +962,13 @@ function reset9(){
 
 
 function resetTimestamp9() {
-	   var now = new Date();
+	   var now9 = new Date();
 	   return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
-                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
-                     .getSeconds()) : (now.getSeconds())));
+                     + ((now9.getMinutes() < 10) ? ("0" + now9.getMinutes()) : (now9.getMinutes())) + ':' + ((now9.getSeconds() < 10) ? ("0" + now9
+                     .getSeconds()) : (now9.getSeconds())));
 }
 function increment9(){
-    if(running == 1){
+    if(running9 == 1){
         setTimeout(function(){
             time++;
             var mins = Math.floor(time/10/60);
@@ -999,7 +1003,7 @@ function increment9(){
 	<body>
 </body>
 	<table style="margin: 0 auto;" ><tr>
-	<td class="dbltables" id="table1"><br/>Table1
+	<td class="dbltables" id="table"><br/>Table1
 <p id="output">0:00:00:00</p>
 <p id="timein"></p>
 <div id="controls" align="center">
@@ -1028,7 +1032,7 @@ function increment9(){
 </div>
 	</td>
 
-	<td class="dbltables" id="table1"><br/>Table4
+	<td class="dbltables" id="table3"><br/>Table4
 <p id="output3">0:00:00:00</p>
 <p id="timein3"></p>
 <div id="controls" align="center">
@@ -1037,7 +1041,7 @@ function increment9(){
 </div>
 	</td></tr>
 	<tr>
-	<td class="dbltables" id="table1"><br/>Table5
+	<td class="dbltables" id="table4"><br/>Table5
 <p id="output4">0:00:00:00</p>
 <p id="timein4"></p>
 <div id="controls" align="center">
@@ -1045,7 +1049,7 @@ function increment9(){
     <button onclick="reset4()" id="reset4"><b id="reset4">Reset</b></button>
 </div>
 	</td>
-	<td class="dbltables" id="table1"><br/>Table6
+	<td class="dbltables" id="table5"><br/>Table6
 <p id="output5">0:00:00:00</p>
 <p id="timein5"></p>
 <div id="controls" align="center">
@@ -1054,7 +1058,7 @@ function increment9(){
 </div>
 	</td></tr>
 	<tr>
-	<td class="dbltables" id="table1"><br/>Table7
+	<td class="dbltables" id="table6"><br/>Table7
 <p id="output6">0:00:00:00</p>
 <p id="timein6"></p>
 <div id="controls" align="center">
@@ -1062,7 +1066,7 @@ function increment9(){
     <button onclick="reset6()" id="reset6"><b id="reset6">Reset</b></button>
 </div>
 	</td>
-	<td class="dbltables" id="table1"><br/>Table8
+	<td class="dbltables" id="table7"><br/>Table8
 <p id="output7">0:00:00:00</p>
 <p id="timein7"></p>
 <div id="controls" align="center">
@@ -1071,7 +1075,7 @@ function increment9(){
 </div>
 	</td></tr>
 	<tr>
-	<td class="dbltables" id="table1"><br/>Table9
+	<td class="dbltables" id="table8"><br/>Table9
 <p id="output8">0:00:00:00</p>
 <p id="timein8"></p>
 <div id="controls" align="center">
@@ -1079,7 +1083,7 @@ function increment9(){
     <button onclick="reset8()" id="reset8"><b id="reset8">Reset</b></button>
 </div>
 	</td>
-	<td class="dbltables" id="table1"><br/>Table10
+	<td class="dbltables" id="table9"><br/>Table10
 <p id="output9">0:00:00:00</p>
 <p id="timein9"></p>
 <div id="controls" align="center">
@@ -1102,11 +1106,11 @@ function increment9(){
 </div>
 <table>
 <tr>
-<td><font color="#fff">SubTotal:</font></td>
+<td><font >SubTotal:</font></td>
 <td><input type="text" id="subtotalBox" size="20"/></td>
 </tr>
 <tr>
-<td><font color="#fff">Tax:</font></td>
+<td><font >Tax:</font></td>
 <td><input type="text" id="taxBox" size="20"  /></td>
 </tr>
 <tr>
@@ -1297,7 +1301,6 @@ document.getElementById('total').value=totalamt;
 <button class="tablinks2" id="reservation" onclick="opentab2(event, 'Reservation'), opentab1(event, 'Floorplan');">Reservation</button>
 <button class="tablinks2"  onclick="opentab2(event, 'Takeout') ,  opentab1(event, 'Tips'), popup();" id='takeout'>Take Out</button>
 <button class="tablinks2" onclick="opentab2(event, 'Salesreport')">Sales Report</button>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script>
 
 	
@@ -1318,6 +1321,8 @@ document.getElementById('total').value=totalamt;
 
 </script>
 <div id="Reservation" class="tabcontent2">
+  <h3>Reservation</h3>
+  <br></br>
   <style>
  
   td {
@@ -1329,9 +1334,8 @@ document.getElementById('total').value=totalamt;
   </style>
 <div class="reservbox">
 <form>
+  
 <p class="reservp">Guest information</p><br/>
-
-	
 	  <label for="name">Name : <input type="text" placeholder="Guest name" name="name"></label><br/>
 	  <br/>
 	
@@ -2093,4 +2097,3 @@ function agregator(){
 
 </html>
 
-  
