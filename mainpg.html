@@ -32,6 +32,20 @@ body{
 	background-color: #333333;
 	opacity: 1,0;
 }
+
+.tablinks3{
+  
+  margin: 10px;
+  color: white;
+  border: 1px solid #F29E20;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0,3s;
+  border-radius: 5px;
+  background-color: #333333;
+  opacity: 1,0;
+}
 div.rl button:hover {
 color: #F29E20;
 }
@@ -315,6 +329,8 @@ margin: 10px;
 	border: 1px solid #c1b9aa;
 }
 .payment span, ul, li {float: center; width: auto;}
+
+
 
 </style>
 
@@ -1300,7 +1316,7 @@ document.getElementById('total').value=totalamt;
 
 <button class="tablinks2" id="reservation" onclick="opentab2(event, 'Reservation'), opentab1(event, 'Floorplan');">Reservation</button>
 <button class="tablinks2"  onclick="opentab2(event, 'Takeout') ,  opentab1(event, 'Tips'), popup();" id='takeout'>Take Out</button>
-<button class="tablinks2" onclick="opentab2(event, 'Salesreport')">Sales Report</button>
+<a href="https://samnar2017.github.io/takeaway-web-application/" target="_self" class="tablinks3">Log out</a>
 <script>
 
 	
@@ -1895,23 +1911,10 @@ document.getElementById('total').value=totalamt;
 </table>
 </div>
 
-<!--<br>
-<button onClick="someFunc()">calculate</button>
-<br>
-SubTotal: <input type="text" id="subtotalBox" size="6"/><br>
-Tax: $<input type="text" id="taxBox" size="6"  /><br>
-Grand Total: $<input type="text" name="grandtotalBox" size="6" /><br>
-<br>
+</div>
+</div>
+</div>
 
-</p>
-</div>
-</div>
-<div id="Salesreport" class="tabcontent2">
-	<h3>Sales report</h3>
-	<p>Here is sales report</p>-->
-</div>
-</div>
-</div>
 <script type="text/javascript">
 function item_total1(qty1,ud1,i_total1,value){
  qty1=document.getElementById(qty1);
